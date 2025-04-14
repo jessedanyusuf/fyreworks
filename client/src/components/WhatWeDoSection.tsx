@@ -4,19 +4,15 @@ import { motion, useInView } from "framer-motion";
 const cards = [
   {
     title: "Creativity",
-    description: "Craft compelling narratives that resonate with your audience and inspire action."
+    description: "We shape ideas into beautiful, meaningful expressions that resonate."
   },
   {
     title: "Strategy",
-    description: "Design strategic experiences that connect and engage on a deeper level."
-  },
-  {
-    title: "Storytelling",
-    description: "Build communities that move with purpose and shared values."
+    description: "We bring clarity, focus, and structure to help you build something that lasts."
   },
   {
     title: "Movements",
-    description: "Launch movements that outlive trends and create lasting impact."
+    description: "We build communities, spark momentum, and scale ideas that outlive trends."
   }
 ];
 
@@ -43,14 +39,14 @@ const WhatWeDoSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            We help brands:
+            We help visionaries build brand movements through:
           </motion.p>
           
           <div className="flex flex-col space-y-6 md:space-y-8">
             {cards.map((card, index) => (
               <motion.div 
                 key={index}
-                className="relative frosted-card p-10 md:p-12 rounded-sm overflow-hidden flex flex-col md:items-start"
+                className="relative frosted-card p-10 md:p-12 overflow-hidden flex flex-col md:items-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}

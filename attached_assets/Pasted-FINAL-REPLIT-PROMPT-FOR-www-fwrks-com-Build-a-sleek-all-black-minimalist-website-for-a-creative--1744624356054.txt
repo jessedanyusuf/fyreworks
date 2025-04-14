@@ -1,0 +1,161 @@
+FINAL REPLIT PROMPT FOR: www.fwrks.com
+
+Build a sleek, all-black, minimalist website for a creative studio called Fireworks.The design should feel like a fusion of Apple-level minimalism and bold cinematic storytelling, using frosted glass (glassmorphism) elements across all sections.
+
+GLOBAL DESIGN SYSTEM
+
+Background: All-black (matte black)
+
+Font: Use SF Display for headings, SF Pro Text for body (or closest web-safe equivalent)
+
+Frosted glass style: Panels, buttons, and cards with blurred translucent white backgrounds, slightly transparent bottoms (glassmorphic gradient fade like pricing card examples)
+
+Text colour: Mostly white with soft grey accents
+
+Corners: Rounded (2xl)
+
+Effects: Soft shadows, smooth scroll transitions, elegant fade-ins
+
+Mobile responsive
+
+NAVIGATION
+
+Add a sticky navigation bar at the top of the site.
+
+Left: Fireworks logo or "fwrks" wordmark
+
+Right: Links with smooth anchor scroll to sections: What We Do, How, Work, Belief, Start
+
+1. HERO SECTION — "The Spark"
+
+Fullscreen black background
+
+On load, show a thin glowing fuse/spark animation moving horizontally across screen
+
+Once it finishes, fade in each line of text inside a centered frosted glass panel:
+
+Don’t build a brand.Build a movement.An idea can set the world on fire.
+
+Below that, place a frosted glass button:
+
+Text: Let’s set the world on fire
+
+Link: mailto:hello@fwrks.com
+
+Glow effect on hover
+
+Add a pulsing scroll indicator at bottom of screen (↓)
+
+2. WHAT WE DO
+
+Title: What We Do
+
+Subtitle: We help visionaries build brand movements through:
+
+Display 3 vertical frosted glass cards (stacked top to bottom), with a transparent fade at the bottom of each:
+
+Creativity — We shape ideas into beautiful, meaningful expressions that resonate.
+
+Strategy — We bring clarity, focus, and structure to help you build something that lasts.
+
+Movements — We build communities, spark momentum, and scale ideas that outlive trends.
+
+3. HOW WE DO IT
+
+Title: How We Do It
+
+Subtitle: Through a collaborative process that blends:
+
+4 vertical frosted glass cards, one per concept (like pricing layout), each with transparent fade at base:
+
+Brand Strategy — Clarify your message, mission, and movement
+
+Storytelling & Content — Tell stories that connect hearts and spark minds
+
+Experience Design — Create experiences people never forget
+
+Movement Building — From launch to legacy, we help you scale your vision
+
+4. WHO WE WORK WITH
+
+Full-width frosted glass overlay
+
+Centered white text:
+
+For Visionaries.Makers. Founders. Creators. Leaders.
+
+5. OUR WORK (OPTIONAL CASE STUDIES / PLACEHOLDER)
+
+Title: Work That Sparks Movements
+
+Subtitle: A few things we’re cooking. Yours could be next.
+
+Use frosted glass cards with space for case study thumbnails or project titles
+
+If no projects yet, display: “Coming soon.”
+
+6. SIGNATURE BELIEF
+
+Fullscreen section with a single centered frosted glass card
+
+Large centered quote:
+
+“An idea can set the world on fire.”
+
+7. CALL TO ACTION
+
+Frosted glass background section
+
+Title:
+
+Let’s set the world on fire
+
+Subtitle:
+
+Let’s build something meaningful together.
+
+Frosted glass button: Start a Project
+
+Link: mailto:hello@fwrks.com
+
+8. JOIN THE MOVEMENT (EMAIL SIGN-UP)
+
+After the CTA, add an email capture form in a frosted container:
+
+Text: Want to know when we launch new projects? Join the movement.
+
+Input: Email field + Button: Keep me posted
+
+9. FOOTER
+
+Matte black background
+
+Frosted bar with:
+
+Left: Fireworks logo or name in SF Display
+
+Right: Email and social icons
+
+Email: hello@fwrks.com
+
+YouTube: @fireworkshq
+
+LinkedIn: @fireworkshq
+
+Twitter/X: @fireworkshq
+
+Instagram: @fireworkshq
+
+TikTok: @fireworkshq
+
+Bottom center:
+
+© Fireworks Studio — All rights reserved.
+
+BUTTON STYLE (Everywhere)
+
+Frosted glass buttons with soft blur and transparent base
+
+White text, glowing slightly on hover
+
+Rounded corners and clean padding

@@ -34,7 +34,7 @@ const CallToActionSection = () => {
           >
             <a 
               href="mailto:hello@fwrks.com" 
-              className="inline-block px-8 py-4 border-2 border-white text-white font-bold hover:bg-white hover:text-black transition-all duration-300"
+              className="frosted-button text-white font-bold"
             >
               Start a Project
             </a>

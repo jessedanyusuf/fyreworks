@@ -50,7 +50,7 @@ const HowWeDoItSection = () => {
             {pillars.map((pillar, index) => (
               <motion.div 
                 key={index}
-                className="relative frosted-card p-10 md:p-12 rounded-sm overflow-hidden"
+                className="relative frosted-card p-10 md:p-12 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
