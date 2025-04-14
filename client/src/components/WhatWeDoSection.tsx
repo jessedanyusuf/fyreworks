@@ -3,20 +3,20 @@ import { motion, useInView } from "framer-motion";
 
 const cards = [
   {
-    title: "Creativity",
-    description: "Craft compelling visual identities and design solutions that captivate and inspire."
+    title: "Craft",
+    description: "Craft compelling narratives that resonate with your audience and inspire action."
   },
   {
-    title: "Strategy",
-    description: "Develop actionable plans that align with your vision and drive meaningful results."
+    title: "Design",
+    description: "Design strategic experiences that connect and engage on a deeper level."
   },
   {
-    title: "Storytelling",
-    description: "Create narratives that resonate with your audience and communicate your unique value."
+    title: "Build",
+    description: "Build communities that move with purpose and shared values."
   },
   {
-    title: "Movements",
-    description: "Build communities and momentum that extend beyond traditional brand experiences."
+    title: "Launch",
+    description: "Launch movements that outlive trends and create lasting impact."
   }
 ];
 
@@ -25,7 +25,7 @@ const WhatWeDoSection = () => {
   const isInView = useInView(ref, { once: false, amount: 0.2 });
   
   return (
-    <section id="what-we-do" className="py-20 md:py-32 bg-white text-black">
+    <section id="what-we-do" className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-6xl mx-auto">
           <motion.h2 
@@ -38,15 +38,15 @@ const WhatWeDoSection = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl mb-16"
+            className="text-xl md:text-2xl mb-16 text-white/80"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            We help visionaries build meaningful brands through:
+            We help brands:
           </motion.p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-col space-y-4 md:space-y-6">
             {cards.map((card, index) => (
               <motion.div 
                 key={index}
@@ -55,20 +55,23 @@ const WhatWeDoSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
                 whileHover={{ 
-                  y: -5,
+                  scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
               >
+                {/* Top highlight */}
+                <div className="glass-highlight" />
+                
                 {/* Add subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 
                 {/* Card content */}
                 <div className="relative z-10">
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-black">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
                     {card.title}
                   </h3>
-                  <div className="h-[1px] w-12 bg-black mb-4 opacity-70"></div>
-                  <p className="text-sm opacity-80 text-black">
+                  <div className="h-[1px] w-12 bg-white mb-4 opacity-20"></div>
+                  <p className="text-sm text-white/70">
                     {card.description}
                   </p>
                 </div>
