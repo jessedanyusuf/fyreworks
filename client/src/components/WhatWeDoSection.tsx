@@ -42,16 +42,16 @@ const WhatWeDoSection = () => {
             We help visionaries build brand movements through:
           </motion.p>
           
-          <div className="flex flex-col space-y-6 md:space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {cards.map((card, index) => (
               <motion.div 
                 key={index}
-                className="relative frosted-card p-10 md:p-12 overflow-hidden flex flex-col md:items-start"
+                className="relative frosted-card p-10 overflow-hidden flex flex-col aspect-[2/3] justify-between"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
                 whileHover={{ 
-                  scale: 1.01,
+                  scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
               >
@@ -62,14 +62,18 @@ const WhatWeDoSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 
                 {/* Card content */}
-                <div className="relative z-10 w-full">
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
-                    {card.title}
-                  </h3>
-                  <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
-                  <p className="text-base text-white/70">
-                    {card.description}
-                  </p>
+                <div className="relative z-10 w-full flex flex-col h-full">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
+                      {card.title}
+                    </h3>
+                    <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
+                  </div>
+                  <div className="mt-auto">
+                    <p className="text-base text-white/70">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
