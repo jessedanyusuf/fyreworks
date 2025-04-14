@@ -46,16 +46,16 @@ const WhatWeDoSection = () => {
             We help brands:
           </motion.p>
           
-          <div className="flex flex-col space-y-4 md:space-y-6">
+          <div className="flex flex-col space-y-6 md:space-y-8">
             {cards.map((card, index) => (
               <motion.div 
                 key={index}
-                className="relative frosted-card p-8 rounded-none overflow-hidden flex flex-col md:flex-row md:items-center"
+                className="relative frosted-card p-10 md:p-12 rounded-sm overflow-hidden flex flex-col md:items-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
                 whileHover={{ 
-                  scale: 1.02,
+                  scale: 1.01,
                   transition: { duration: 0.3 }
                 }}
               >
@@ -66,12 +66,12 @@ const WhatWeDoSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 
                 {/* Card content */}
-                <div className="relative z-10 flex flex-col md:flex-row md:items-center w-full">
-                  <h3 className="text-xl md:text-3xl font-bold mb-4 md:mb-0 text-white md:w-1/4 md:pr-8">
+                <div className="relative z-10 w-full">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">
                     {card.title}
                   </h3>
-                  <div className="md:hidden h-[1px] w-12 bg-white mb-4 opacity-20"></div>
-                  <p className="text-sm md:text-base text-white/70 md:w-3/4">
+                  <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
+                  <p className="text-base text-white/70">
                     {card.description}
                   </p>
                 </div>
