@@ -25,7 +25,7 @@ const HowWeDoItSection = () => {
   const isInView = useInView(ref, { once: false, amount: 0.2 });
   
   return (
-    <section id="how-we-do-it" className="py-20 md:py-32 bg-[#F5F5F7] text-black">
+    <section id="how-we-do-it" className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-5xl mx-auto">
           <motion.h2 

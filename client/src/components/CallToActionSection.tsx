@@ -6,7 +6,7 @@ const CallToActionSection = () => {
   const isInView = useInView(ref, { once: false, amount: 0.5 });
   
   return (
-    <section id="contact" className="py-20 md:py-32 bg-white text-black">
+    <section id="contact" className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2 
@@ -34,7 +34,7 @@ const CallToActionSection = () => {
           >
             <a 
               href="mailto:hello@fwrks.com" 
-              className="inline-block px-8 py-4 border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-all duration-300"
+              className="inline-block px-8 py-4 border-2 border-white text-white font-bold hover:bg-white hover:text-black transition-all duration-300"
             >
               Start a Project
             </a>

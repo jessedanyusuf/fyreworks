@@ -6,7 +6,7 @@ const SignatureBeliefSection = () => {
   const isInView = useInView(ref, { once: false, amount: 0.5 });
   
   return (
-    <section className="py-20 md:py-32 bg-white text-black">
+    <section className="py-20 md:py-32 bg-black text-white">
       <div className="container mx-auto px-6" ref={ref}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
