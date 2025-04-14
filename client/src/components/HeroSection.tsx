@@ -6,12 +6,13 @@ const HeroSection = () => {
       <div className="container mx-auto">
         <div className="text-center max-w-4xl mx-auto py-20">
           <motion.h1 
-            className="text-4xl md:text-7xl font-bold mb-8 tracking-tight"
+            className="text-4xl md:text-7xl font-bold mb-8 tracking-tight flex flex-col"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Don't build a brand. Build a movement.
+            <span>Don't build a brand.</span>
+            <span>Build a movement.</span>
           </motion.h1>
           
           <motion.p 
@@ -20,7 +21,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Fireworks helps visionaries turn ideas into movements.
+            An idea can set the world on fire.
           </motion.p>
           
           <motion.div
@@ -36,6 +37,19 @@ const HeroSection = () => {
               ease: "easeInOut"
             }}
           />
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <a 
+              href="mailto:hello@fwrks.com" 
+              className="frosted-button text-white font-bold"
+            >
+              Let&apos;s set the world on fire
+            </a>
+          </motion.div>
         </div>
       </div>
       
