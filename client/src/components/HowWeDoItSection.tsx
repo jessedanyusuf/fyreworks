@@ -46,20 +46,34 @@ const HowWeDoItSection = () => {
             Through a collaborative process that blends:
           </motion.p>
           
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+          <div className="flex flex-col space-y-6 md:space-y-8">
             {pillars.map((pillar, index) => (
               <motion.div 
                 key={index}
+                className="relative frosted-card p-10 md:p-12 rounded-sm overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.2 + (index * 0.1) }}
+                whileHover={{ 
+                  scale: 1.01,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <h3 className="text-xl md:text-2xl font-bold mb-4">
-                  {pillar.title}
-                </h3>
-                <p className="opacity-80">
-                  {pillar.description}
-                </p>
+                {/* Top highlight */}
+                <div className="glass-highlight" />
+                
+                {/* Add subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4">
+                    {pillar.title}
+                  </h3>
+                  <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
+                  <p className="text-base text-white/70">
+                    {pillar.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

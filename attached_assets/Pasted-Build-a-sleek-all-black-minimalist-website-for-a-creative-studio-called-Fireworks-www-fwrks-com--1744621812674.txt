@@ -1,0 +1,111 @@
+Build a sleek, all-black, minimalist website for a creative studio called Fireworks (www.fwrks.com).
+
+Design Language:
+
+Inspired by Apple meets glassmorphism
+
+Entire background: matte black
+
+Frosted glass style (blur + semi-transparent white overlays) for all content panels and buttons
+
+Fonts: SF Display for headings, SF Pro Text for body
+
+Soft shadows, smooth transitions, subtle fade-ins
+
+Mobile responsive
+
+1. Hero Section
+Fullscreen, matte black
+
+Frosted glass panel center-aligned
+
+Text:
+
+Don’t build a brand. Build a movement.
+Fireworks helps visionaries turn ideas into movements.
+
+Optional: glowing fuse animation or soft spark
+
+2. What We Do
+Title: What We Do (in white, centered)
+
+Subtitle: We help brands:
+
+Layout: Vertical stacked frosted glass cards, each with one point:
+
+Craft compelling narratives that resonate
+
+Design strategic experiences that connect
+
+Build communities that move with purpose
+
+Launch movements that outlive trends
+
+Each card has a soft frosted blur and fades in as you scroll
+
+3. How We Do It
+Title: How We Do It
+
+Subtitle: Through a collaborative process that blends:
+
+Four stacked vertical cards (like pricing cards in the image):
+
+Brand Strategy — Clarify your message, mission, and movement
+
+Storytelling & Content — Tell stories that connect hearts and spark minds
+
+Experience Design — Create experiences people never forget
+
+Movement Building — From launch to legacy, we help you scale your vision
+
+4. Who We Work With
+Full-width frosted glass panel over black
+
+Centered white text:
+
+For Visionaries.
+Makers. Founders. Creators. Leaders.
+
+5. Signature Belief
+Centered frosted glass card
+
+Large white quote text:
+
+“An idea can set the world on fire.”
+
+6. Call to Action
+Frosted glass background
+
+Center-aligned white text:
+
+Let’s set the world on fire
+Let’s build something meaningful together.
+
+Frosted button: Start a Project (mailto:hello@fwrks.com)
+
+7. Footer
+Matte black background
+
+Frosted overlay section with:
+
+Left: Fireworks logo
+
+Right: Email + Socials
+
+hello@fwrks.com
+
+YouTube, LinkedIn, Twitter, Instagram, TikTok: [@fireworkshq]
+
+Bottom center:
+
+© Fireworks Studio — All rights reserved.
+
+Button Style Everywhere:
+
+Frosted glass buttons
+
+Soft border, white text, blurred background
+
+Rounded edges, slight hover glow
+
+Add smooth scroll, soft animations, and clean mobile responsiveness. Entire site must feel modern, focused, quiet, and powerful — like a brand worth watching.

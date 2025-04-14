@@ -3,19 +3,19 @@ import { motion, useInView } from "framer-motion";
 
 const cards = [
   {
-    title: "Craft",
+    title: "Creativity",
     description: "Craft compelling narratives that resonate with your audience and inspire action."
   },
   {
-    title: "Design",
+    title: "Strategy",
     description: "Design strategic experiences that connect and engage on a deeper level."
   },
   {
-    title: "Build",
+    title: "Storytelling",
     description: "Build communities that move with purpose and shared values."
   },
   {
-    title: "Launch",
+    title: "Movements",
     description: "Launch movements that outlive trends and create lasting impact."
   }
 ];
