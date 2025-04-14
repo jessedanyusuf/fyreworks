@@ -1,0 +1,104 @@
+Build a sleek, minimalist website for a creative studio called Fireworks (URL: www.fwrks.com).
+
+Design Guidelines:
+
+Inspired by Apple’s design aesthetic: minimalist, clean, bold
+
+Use black and white only (no colour accents)
+
+Font: Use SF Display for headings, SF Pro Text for body (or the closest web-safe alternative)
+
+Smooth transitions between sections (one flows into the next seamlessly)
+
+Use soft animations (fade-ins, smooth scroll), not flashy effects
+
+Mobile responsive
+
+Website Sections (in order):
+
+1. Hero Section
+
+Black background
+
+Centered bold white text:
+
+Don’t build a brand. Build a movement.
+Fireworks helps visionaries turn ideas into movements.
+
+Subtle animation (e.g. glowing fuse line or fire spark)
+
+2. What We Do
+
+White background, black text
+
+Title: “What We Do”
+
+Subtitle: We help brands:
+
+4 points, staggered on scroll:
+
+Craft compelling narratives that resonate
+
+Design strategic experiences that connect
+
+Build communities that move with purpose
+
+Launch movements that outlive trends
+
+Optional: fade-in animation for each point
+
+3. How We Do It
+
+Light grey or white background
+
+Title: “How We Do It”
+
+Subtitle: Through a collaborative process that blends:
+
+4 key pillars, each in its own block or column:
+
+Brand Strategy — Clarify your message, mission, and movement
+
+Storytelling & Content — Tell stories that connect hearts and spark minds
+
+Experience Design — Create experiences people never forget
+
+Movement Building — From launch to legacy, we help you scale your vision
+
+4. Who We Work With
+
+Black background, white bold text
+
+Title: “For Visionaries.”
+
+Subtitle: Makers. Founders. Creators. Leaders.
+
+5. Signature Belief (Full width)
+
+White background
+
+Centered large text:
+
+“An idea can set the world on fire.”
+
+6. Call to Collaborate
+
+Black text on white
+
+Title: “Ready to Ignite?”
+
+Subtitle: “Let’s build something meaningful together.”
+
+Button: “Start a Project” (email: hello@fwrks.com or form placeholder)
+
+7. Footer
+
+Black background, white text
+
+Left: Fireworks logo (or text placeholder)
+
+Right: Email (hello@fwrks.com), IG & X icons
+
+Bottom center: “© Fireworks Studio — All rights reserved.”
+
+Add smooth scrolling and transitions between all sections. Do not use too many effects — keep it clean, editorial, confident.
