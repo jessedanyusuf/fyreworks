@@ -101,11 +101,12 @@ const Footer = () => {
         </div>
         
         <div className="text-center">
-          <div className="mb-4">
-            <h2 className="text-4xl md:text-6xl font-black" style={{ letterSpacing: '-0.05em' }}>©FYREWORKS</h2>
+          <div className="mb-6">
+            <h2 className="text-4xl md:text-6xl font-black mb-4" style={{ letterSpacing: '-0.05em' }}>©FYREWORKS</h2>
+            <div className="text-2xl md:text-4xl font-bold opacity-90">Since 2016</div>
           </div>
           <div className="text-sm opacity-70">
-            <p>Since 2016 — All rights reserved.</p>
+            <p>All rights reserved.</p>
           </div>
         </div>
       </div>
