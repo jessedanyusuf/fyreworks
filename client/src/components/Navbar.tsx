@@ -50,6 +50,17 @@ const Navbar = () => {
           animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
+          {/* Exit button */}
+          <button 
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 text-white hover:opacity-70 transition-all"
+            aria-label="Close menu"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+
           <div className="h-full flex flex-col items-center justify-center space-y-12 px-6">
             <a 
               href="#what-we-do" 
@@ -64,6 +75,20 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               How We Do It
+            </a>
+            <a 
+              href="#our-story" 
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Our Story
+            </a>
+            <a 
+              href="#what-weve-done" 
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              What We've Done
             </a>
             <a 
               href="#contact" 
