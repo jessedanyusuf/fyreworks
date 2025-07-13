@@ -3,16 +3,31 @@ import robotImage from "@assets/Robots in Agbada Conversation (1)_1752409569547.
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 relative bg-black text-white">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto py-20">
-          {/* Left side - Text content */}
-          <div className="text-center lg:text-left">
+    <section id="hero" className="min-h-screen relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <motion.img 
+          src={robotImage} 
+          alt="Three robotic figures in traditional African attire having a conversation"
+          className="w-full h-full object-cover"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+      </div>
+      
+      {/* Black blur overlay at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+      
+      {/* Text content overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
+        <div className="container mx-auto">
+          <div className="max-w-4xl">
             <motion.h1 
               className="text-4xl md:text-7xl font-bold mb-8 tracking-tight flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               <span>Don't build a brand.</span>
               <span>Build a movement.</span>
@@ -22,13 +37,13 @@ const HeroSection = () => {
               className="text-xl md:text-2xl mb-10 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
             >
               An idea can set the world on fire.
             </motion.p>
             
             <motion.div
-              className="spark-line mx-auto lg:mx-0 my-8 w-0"
+              className="spark-line my-8 w-0"
               initial={{ width: "0%" }}
               animate={{ 
                 width: ["0%", "100%", "0%"],
@@ -37,14 +52,15 @@ const HeroSection = () => {
               transition={{ 
                 duration: 3,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
+                delay: 1
               }}
             />
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
             >
               <a 
                 href="mailto:hello@fwrks.com" 
@@ -54,28 +70,15 @@ const HeroSection = () => {
               </a>
             </motion.div>
           </div>
-          
-          {/* Right side - Robot image */}
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <img 
-              src={robotImage} 
-              alt="Three robotic figures in traditional African attire having a conversation"
-              className="max-w-full h-auto rounded-lg shadow-2xl"
-            />
-          </motion.div>
         </div>
       </div>
       
+      {/* Scroll indicator */}
       <motion.div 
-        className="absolute bottom-8 left-0 right-0 text-center"
+        className="absolute bottom-8 right-8 text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
       >
         <a 
           href="#what-we-do" 

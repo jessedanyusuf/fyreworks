@@ -32,20 +32,8 @@ const Navbar = () => {
             FYREWORKS
           </a>
           
-          <div className="hidden md:flex space-x-6">
-            <a href="#what-we-do" className="hover:opacity-70 transition-all text-sm font-medium">
-              What We Do
-            </a>
-            <a href="#how-we-do-it" className="hover:opacity-70 transition-all text-sm font-medium">
-              How We Do It
-            </a>
-            <a href="#contact" className="hover:opacity-70 transition-all text-sm font-medium">
-              Contact
-            </a>
-          </div>
-          
           <button 
-            className="md:hidden focus:outline-none" 
+            className="focus:outline-none" 
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
@@ -57,7 +45,7 @@ const Navbar = () => {
         
         {/* Mobile menu */}
         <motion.div 
-          className={`md:hidden bg-white absolute w-full py-4 shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}
+          className={`absolute w-full bg-black/95 backdrop-blur-sm shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}
           initial={{ opacity: 0, height: 0 }}
           animate={{ 
             opacity: mobileMenuOpen ? 1 : 0,
@@ -65,24 +53,24 @@ const Navbar = () => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="container mx-auto px-6 flex flex-col space-y-3">
+          <div className="container mx-auto px-6 flex flex-col space-y-3 py-6">
             <a 
               href="#what-we-do" 
-              className="py-2 hover:opacity-70 transition-all text-black"
+              className="py-3 hover:opacity-70 transition-all text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               What We Do
             </a>
             <a 
               href="#how-we-do-it" 
-              className="py-2 hover:opacity-70 transition-all text-black"
+              className="py-3 hover:opacity-70 transition-all text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               How We Do It
             </a>
             <a 
               href="#contact" 
-              className="py-2 hover:opacity-70 transition-all text-black"
+              className="py-3 hover:opacity-70 transition-all text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

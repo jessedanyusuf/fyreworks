@@ -102,10 +102,10 @@ const Footer = () => {
         
         <div className="text-center">
           <div className="mb-4">
-            <h2 className="text-4xl md:text-6xl font-black" style={{ letterSpacing: '-0.05em' }}>FYREWORKS</h2>
+            <h2 className="text-4xl md:text-6xl font-black" style={{ letterSpacing: '-0.05em' }}>©FYREWORKS</h2>
           </div>
           <div className="text-sm opacity-70">
-            <p>© Fyreworks Studio — All rights reserved.</p>
+            <p>Since 2016 — All rights reserved.</p>
           </div>
         </div>
       </div>
