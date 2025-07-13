@@ -3,27 +3,26 @@ import robotImage from "@assets/Robots in Agbada Conversation (1)_1752409569547.
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="min-h-screen relative bg-black text-white flex items-center justify-center">
-      {/* Container for centered layout */}
-      <div className="container mx-auto px-8 md:px-16 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          
-          {/* Left side - Image */}
-          <motion.div
-            className="flex justify-center lg:justify-start order-2 lg:order-1"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <img 
-              src={robotImage} 
-              alt="Three robotic figures in traditional African attire having a conversation"
-              className="max-w-full h-auto rounded-lg shadow-2xl max-h-[70vh] object-contain"
-            />
-          </motion.div>
-          
-          {/* Right side - Text content */}
-          <div className="order-1 lg:order-2 text-center lg:text-left">
+    <section id="hero" className="min-h-screen relative bg-black overflow-hidden">
+      {/* Centered Image Container */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.img 
+          src={robotImage} 
+          alt="Three robotic figures in traditional African attire having a conversation"
+          className="max-h-[70vh] max-w-[80vw] object-contain rounded-lg shadow-2xl"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+      </div>
+      
+      {/* Black blur overlay at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+      
+      {/* Text content overlay */}
+      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
+        <div className="container mx-auto">
+          <div className="max-w-4xl">
             <motion.h1 
               className="text-4xl md:text-7xl font-bold mb-8 tracking-tight flex flex-col"
               initial={{ opacity: 0, y: 40 }}
@@ -44,7 +43,7 @@ const HeroSection = () => {
             </motion.p>
             
             <motion.div
-              className="spark-line mx-auto lg:mx-0 my-8 w-0"
+              className="spark-line my-8 w-0"
               initial={{ width: "0%" }}
               animate={{ 
                 width: ["0%", "100%", "0%"],
