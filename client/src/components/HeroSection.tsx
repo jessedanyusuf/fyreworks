@@ -9,7 +9,7 @@ const HeroSection = () => {
         <motion.img 
           src={robotImage} 
           alt="Three robotic figures in traditional African attire having a conversation"
-          className="max-h-[70vh] max-w-[80vw] object-contain rounded-lg shadow-2xl"
+          className="max-h-[85vh] max-w-[95vw] object-contain rounded-lg shadow-2xl"
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -25,7 +25,7 @@ const HeroSection = () => {
       {/* Text content overlay */}
       <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
         <div className="container mx-auto">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
               className="text-4xl md:text-7xl font-bold mb-8 tracking-tight flex flex-col"
               initial={{ opacity: 0, y: 40 }}
@@ -37,7 +37,7 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.div
-              className="spark-line my-8 w-0"
+              className="spark-line my-8 w-0 mx-auto"
               initial={{ width: "0%" }}
               animate={{ 
                 width: ["0%", "100%", "0%"],

@@ -37,28 +37,33 @@ const JoinTheMovementSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {cards.map((card, index) => {
             const CardContent = () => (
-              <div className="frosted-card h-80 w-full flex flex-col">
-                {/* Title Section - Takes most of the space */}
-                <div className="flex-1 flex items-center justify-center p-8">
-                  <h3 
-                    className="text-3xl md:text-4xl font-black text-center leading-tight"
-                    style={{ letterSpacing: '-0.05em' }}
-                  >
-                    {card.title}
-                  </h3>
-                </div>
+              <div className="relative frosted-card p-10 overflow-hidden flex flex-col aspect-[2/3] justify-between">
+                {/* Top highlight */}
+                <div className="glass-highlight" />
                 
-                {/* Description Section - Fixed at bottom */}
-                <div className="p-8 pt-0">
-                  <div className="text-center border-t border-white/10 pt-6">
-                    <p className="text-sm opacity-90 leading-relaxed">
+                {/* Add subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+                
+                {/* Card content */}
+                <div className="relative z-10 w-full flex flex-col h-full">
+                  <div>
+                    <h3 
+                      className="text-xl md:text-2xl font-black mb-4 text-white"
+                      style={{ letterSpacing: '-0.05em' }}
+                    >
+                      {card.title}
+                    </h3>
+                    <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
+                  </div>
+                  <div className="mt-auto">
+                    <p className="text-base text-white/70 mb-2">
                       {card.description}
                     </p>
                     {card.comingSoon && (
-                      <p className="text-xs opacity-70 font-medium mt-2">
+                      <p className="text-sm text-white/50 font-medium">
                         Coming Soon
                       </p>
                     )}
@@ -75,6 +80,10 @@ const JoinTheMovementSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.3 }
+                }}
               >
                 {card.link ? (
                   <a
