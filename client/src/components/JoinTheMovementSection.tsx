@@ -41,7 +41,7 @@ const JoinTheMovementSection = () => {
           {cards.map((card, index) => (
             <motion.div
               key={card.title}
-              className="group relative h-80"
+              className="group relative"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -54,13 +54,13 @@ const JoinTheMovementSection = () => {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="frosted-card h-80 flex flex-col justify-between p-8">
+                  <div className="frosted-card h-80 flex flex-col p-8">
                     <div className="flex-1 flex items-center justify-center">
                       <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
                         {card.title}
                       </h3>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center mt-auto">
                       <p className="text-sm opacity-90 mb-2">
                         {card.description}
                       </p>
@@ -73,13 +73,13 @@ const JoinTheMovementSection = () => {
                   </div>
                 </a>
               ) : (
-                <div className="frosted-card h-80 flex flex-col justify-between p-8">
+                <div className="frosted-card h-80 flex flex-col p-8">
                   <div className="flex-1 flex items-center justify-center">
                     <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
                       {card.title}
                     </h3>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center mt-auto">
                     <p className="text-sm opacity-90 mb-2">
                       {card.description}
                     </p>
