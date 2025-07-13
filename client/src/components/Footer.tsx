@@ -102,12 +102,12 @@ const Footer = () => {
         
         <div className="text-center">
           <div className="mb-8">
-            <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              We help brands and businesses transform their ideas into movements.
-            </p>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-none break-words" style={{ letterSpacing: '-0.05em' }}>
+            <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-none break-words mb-8" style={{ letterSpacing: '-0.05em' }}>
               ©FYREWORKS 2016-TMRW
             </h2>
+            <h3 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-none break-words" style={{ letterSpacing: '-0.05em' }}>
+              HELPING BRANDS AND BUSINESSES TRANSFORM THEIR IDEAS INTO MOVEMENTS.
+            </h3>
           </div>
           <div className="text-sm opacity-70">
             <p>All rights reserved.</p>
