@@ -41,7 +41,7 @@ const JoinTheMovementSection = () => {
           {cards.map((card, index) => (
             <motion.div
               key={card.title}
-              className="group relative"
+              className="group relative h-80"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -54,7 +54,7 @@ const JoinTheMovementSection = () => {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="glass-card h-80 flex flex-col justify-between p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <div className="frosted-card h-80 flex flex-col justify-between p-8">
                     <div className="flex-1 flex items-center justify-center">
                       <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
                         {card.title}
@@ -73,7 +73,7 @@ const JoinTheMovementSection = () => {
                   </div>
                 </a>
               ) : (
-                <div className="glass-card h-80 flex flex-col justify-between p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                <div className="frosted-card h-80 flex flex-col justify-between p-8">
                   <div className="flex-1 flex items-center justify-center">
                     <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
                       {card.title}
