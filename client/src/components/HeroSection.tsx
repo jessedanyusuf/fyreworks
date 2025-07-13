@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import robotImage from "@assets/Robots in Agbada Conversation (1)_1752409569547.png";
+import robotImage from "@assets/image_1752411699260.png";
 
 const HeroSection = () => {
   return (
