@@ -9,7 +9,7 @@ const HeroSection = () => {
         <motion.img 
           src={robotImage} 
           alt="Three robotic figures in traditional African attire having a conversation"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
