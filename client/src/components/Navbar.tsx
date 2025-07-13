@@ -45,32 +45,29 @@ const Navbar = () => {
         
         {/* Mobile menu */}
         <motion.div 
-          className={`absolute w-full bg-black/95 backdrop-blur-sm shadow-lg ${mobileMenuOpen ? 'block' : 'hidden'}`}
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ 
-            opacity: mobileMenuOpen ? 1 : 0,
-            height: mobileMenuOpen ? 'auto' : 0
-          }}
+          className={`fixed inset-0 z-50 bg-black/95 backdrop-blur-sm ${mobileMenuOpen ? 'block' : 'hidden'}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="container mx-auto px-6 flex flex-col space-y-3 py-6">
+          <div className="h-full flex flex-col items-center justify-center space-y-12 px-6">
             <a 
               href="#what-we-do" 
-              className="py-3 hover:opacity-70 transition-all text-white text-lg"
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               What We Do
             </a>
             <a 
               href="#how-we-do-it" 
-              className="py-3 hover:opacity-70 transition-all text-white text-lg"
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               How We Do It
             </a>
             <a 
               href="#contact" 
-              className="py-3 hover:opacity-70 transition-all text-white text-lg"
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
