@@ -63,11 +63,25 @@ const Navbar = () => {
 
           <div className="h-full flex flex-col items-center justify-center space-y-12 px-6">
             <a 
+              href="#our-story" 
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Our Story
+            </a>
+            <a 
               href="#what-we-do" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
               What We Do
+            </a>
+            <a 
+              href="#what-weve-done" 
+              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              What We've Done
             </a>
             <a 
               href="#how-we-do-it" 
@@ -77,18 +91,11 @@ const Navbar = () => {
               How We Do It
             </a>
             <a 
-              href="#our-story" 
+              href="#work-with-us" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Our Story
-            </a>
-            <a 
-              href="#what-weve-done" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              What We've Done
+              Work With Us
             </a>
             <a 
               href="#contact" 
