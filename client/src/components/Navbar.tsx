@@ -28,8 +28,8 @@ const Navbar = () => {
     <header>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${navbarBg}`}>
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#" className="text-2xl font-bold transition-all">
-            Fireworks
+          <a href="#" className="text-2xl font-black transition-all" style={{ letterSpacing: '-0.05em' }}>
+            FYREWORKS
           </a>
           
           <div className="hidden md:flex space-x-6">

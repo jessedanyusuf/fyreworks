@@ -11,7 +11,7 @@ const Footer = () => {
           
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold">fwrks</h2>
+              <h2 className="text-2xl font-black" style={{ letterSpacing: '-0.05em' }}>FYREWORKS</h2>
             </div>
             
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-8 md:mb-0">
@@ -105,7 +105,7 @@ const Footer = () => {
         </div>
         
         <div className="text-center text-sm opacity-70">
-          <p>© Fireworks Studio — All rights reserved.</p>
+          <p>© Fyreworks Studio — All rights reserved.</p>
         </div>
       </div>
     </footer>
