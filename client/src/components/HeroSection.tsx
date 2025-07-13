@@ -19,6 +19,9 @@ const HeroSection = () => {
       {/* Black blur overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
       
+      {/* Left blur overlay */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+      
       {/* Text content overlay */}
       <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
         <div className="container mx-auto">
@@ -32,15 +35,6 @@ const HeroSection = () => {
               <span>Don't build a brand.</span>
               <span>Build a movement.</span>
             </motion.h1>
-            
-            <motion.p 
-              className="text-xl md:text-2xl mb-10 opacity-90"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              An idea can set the world on fire.
-            </motion.p>
             
             <motion.div
               className="spark-line my-8 w-0"
@@ -57,18 +51,7 @@ const HeroSection = () => {
               }}
             />
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <a 
-                href="mailto:hello@fwrks.com" 
-                className="frosted-button text-white font-bold"
-              >
-                Let&apos;s set the world on fire
-              </a>
-            </motion.div>
+
           </div>
         </div>
       </div>

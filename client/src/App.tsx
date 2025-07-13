@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import CallToFireSection from "@/components/CallToFireSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import HowWeDoItSection from "@/components/HowWeDoItSection";
 import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
@@ -22,6 +23,7 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <HeroSection />
+          <CallToFireSection />
           <WhatWeDoSection />
           <HowWeDoItSection />
           <WhoWeWorkWithSection />
