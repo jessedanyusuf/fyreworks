@@ -54,33 +54,41 @@ const JoinTheMovementSection = () => {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="glass-card h-full flex flex-col justify-center items-center text-center p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  <div className="glass-card h-80 flex flex-col justify-between p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex-1 flex items-center justify-center">
+                      <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
+                        {card.title}
+                      </h3>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-sm opacity-90 mb-2">
+                        {card.description}
+                      </p>
+                      {card.comingSoon && (
+                        <span className="text-xs opacity-70 font-medium">
+                          Coming Soon
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              ) : (
+                <div className="glass-card h-80 flex flex-col justify-between p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  <div className="flex-1 flex items-center justify-center">
+                    <h3 className="text-3xl md:text-4xl font-black uppercase text-center" style={{ letterSpacing: '-0.05em' }}>
                       {card.title}
                     </h3>
-                    <p className="text-lg opacity-90 mb-4">
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm opacity-90 mb-2">
                       {card.description}
                     </p>
                     {card.comingSoon && (
-                      <span className="text-sm opacity-70 font-medium">
+                      <span className="text-xs opacity-70 font-medium">
                         Coming Soon
                       </span>
                     )}
                   </div>
-                </a>
-              ) : (
-                <div className="glass-card h-full flex flex-col justify-center items-center text-center p-8 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    {card.title}
-                  </h3>
-                  <p className="text-lg opacity-90 mb-4">
-                    {card.description}
-                  </p>
-                  {card.comingSoon && (
-                    <span className="text-sm opacity-70 font-medium">
-                      Coming Soon
-                    </span>
-                  )}
                 </div>
               )}
             </motion.div>
