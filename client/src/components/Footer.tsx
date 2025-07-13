@@ -10,10 +10,6 @@ const Footer = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-lg" />
           
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-black" style={{ letterSpacing: '-0.05em' }}>FYREWORKS</h2>
-            </div>
-            
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-8 md:mb-0">
               <a href="mailto:hello@fwrks.com" className="hover:opacity-70 transition">
                 hello@fwrks.com
@@ -104,8 +100,13 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="text-center text-sm opacity-70">
-          <p>© Fyreworks Studio — All rights reserved.</p>
+        <div className="text-center">
+          <div className="mb-4">
+            <h2 className="text-4xl md:text-6xl font-black" style={{ letterSpacing: '-0.05em' }}>FYREWORKS</h2>
+          </div>
+          <div className="text-sm opacity-70">
+            <p>© Fyreworks Studio — All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
