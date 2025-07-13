@@ -10,6 +10,7 @@ import HowWeDoItSection from "@/components/HowWeDoItSection";
 import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
 import SignatureBeliefSection from "@/components/SignatureBeliefSection";
 import CallToActionSection from "@/components/CallToActionSection";
+import JoinTheMovementSection from "@/components/JoinTheMovementSection";
 import Footer from "@/components/Footer";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <WhoWeWorkWithSection />
           <SignatureBeliefSection />
           <CallToActionSection />
+          <JoinTheMovementSection />
         </main>
         <Footer />
       </div>
