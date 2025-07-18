@@ -27,7 +27,8 @@ const HeroSection = () => {
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
-              className="text-4xl md:text-7xl font-bold mb-8 tracking-tight flex flex-col"
+              className="text-4xl md:text-7xl font-bold mb-8 flex flex-col"
+              style={{ letterSpacing: '-0.05em' }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}

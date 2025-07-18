@@ -110,7 +110,7 @@ const Footer = () => {
             </h3>
           </div>
           <div className="text-sm opacity-70">
-            <p>All rights reserved.</p>
+            <p style={{ letterSpacing: '-0.05em' }}>All rights reserved.</p>
           </div>
         </div>
       </div>

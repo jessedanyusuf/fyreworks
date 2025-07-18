@@ -11,6 +11,7 @@ const CallToActionSection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2 
             className="text-3xl md:text-5xl font-bold mb-6"
+            style={{ letterSpacing: '-0.05em' }}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
@@ -20,6 +21,7 @@ const CallToActionSection = () => {
           
           <motion.p 
             className="text-xl md:text-2xl mb-10"
+            style={{ letterSpacing: '-0.05em' }}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -35,6 +37,7 @@ const CallToActionSection = () => {
             <a 
               href="mailto:hello@fwrks.com" 
               className="frosted-button text-white font-bold"
+              style={{ letterSpacing: '-0.05em' }}
             >
               Start a Project
             </a>

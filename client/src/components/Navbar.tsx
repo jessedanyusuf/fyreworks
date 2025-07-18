@@ -65,6 +65,7 @@ const Navbar = () => {
             <a 
               href="#our-story" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Our Story
@@ -72,6 +73,7 @@ const Navbar = () => {
             <a 
               href="#what-we-do" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               What We Do
@@ -79,6 +81,7 @@ const Navbar = () => {
             <a 
               href="#what-weve-done" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               What We've Done
@@ -86,6 +89,7 @@ const Navbar = () => {
             <a 
               href="#how-we-do-it" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               How We Do It
@@ -93,6 +97,7 @@ const Navbar = () => {
             <a 
               href="#work-with-us" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Work With Us
@@ -100,6 +105,7 @@ const Navbar = () => {
             <a 
               href="#contact" 
               className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
+              style={{ letterSpacing: '-0.05em' }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

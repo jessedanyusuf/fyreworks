@@ -6,7 +6,8 @@ const CallToFireSection = () => {
       <div className="container mx-auto px-8 md:px-16">
         <div className="text-center max-w-6xl mx-auto">
           <motion.h2 
-            className="text-5xl md:text-8xl lg:text-9xl font-bold mb-12 tracking-tight leading-none"
+            className="text-5xl md:text-8xl lg:text-9xl font-bold mb-12 leading-none"
+            style={{ letterSpacing: '-0.05em' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -39,6 +40,7 @@ const CallToFireSection = () => {
             <a 
               href="mailto:hello@fwrks.com" 
               className="frosted-button text-white font-bold text-lg"
+              style={{ letterSpacing: '-0.05em' }}
             >
               Let's set the world on fire
             </a>

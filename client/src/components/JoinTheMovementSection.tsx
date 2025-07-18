@@ -32,7 +32,7 @@ const JoinTheMovementSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{ letterSpacing: '-0.05em' }}>
             Join the Movement
           </h2>
         </motion.div>
@@ -59,11 +59,11 @@ const JoinTheMovementSection = () => {
                     <div className="h-[1px] w-12 bg-white mb-6 opacity-20"></div>
                   </div>
                   <div className="mt-auto">
-                    <p className="text-base text-white/70 mb-2">
+                    <p className="text-base text-white/70 mb-2" style={{ letterSpacing: '-0.05em' }}>
                       {card.description}
                     </p>
                     {card.comingSoon && (
-                      <p className="text-sm text-white/50 font-medium">
+                      <p className="text-sm text-white/50 font-medium" style={{ letterSpacing: '-0.05em' }}>
                         Coming Soon
                       </p>
                     )}

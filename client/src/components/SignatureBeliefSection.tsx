@@ -23,6 +23,7 @@ const SignatureBeliefSection = () => {
           <div className="relative z-10">
             <motion.h2 
               className="text-3xl md:text-6xl font-bold"
+              style={{ letterSpacing: '-0.05em' }}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 }}
