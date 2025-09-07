@@ -28,7 +28,7 @@ const SignatureBeliefSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              "An idea can set the world on fire."
+              ""
             </motion.h2>
           </div>
         </motion.div>

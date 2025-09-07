@@ -2,23 +2,24 @@ const Footer = () => {
   return (
     <footer className="py-10 bg-black text-white">
       <div className="container mx-auto px-6">
-        <div className="relative frosted-card p-8 rounded-lg mb-8">
-          {/* Top highlight */}
-          <div className="glass-highlight" />
-          
-          {/* Add subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-lg" />
-          
-          <div className="relative z-10 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-8 md:mb-0">
-              <a href="mailto:hello@fwrks.com" className="hover:opacity-70 transition">
-                hello@fwrks.com
-              </a>
-              
-              <div className="flex space-x-6">
+        <div className="mb-8">
+          <div className="flex flex-col items-center space-y-6">
+            <a href="mailto:hello@fyreworks.co" className="hover:opacity-70 transition text-lg flex items-center">
+              <svg 
+                className="w-5 h-5 mr-2" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              hello@fyreworks.co
+            </a>
+            
+            <div className="flex space-x-6">
                 {/* YouTube */}
                 <a 
-                  href="#" 
+                  href="https://youtube.com/@fyreworksco" 
                   className="hover:opacity-70 transition"
                   aria-label="YouTube"
                 >
@@ -34,7 +35,7 @@ const Footer = () => {
                 
                 {/* LinkedIn */}
                 <a 
-                  href="#" 
+                  href="https://linkedin.com/company/fyreworksco" 
                   className="hover:opacity-70 transition"
                   aria-label="LinkedIn"
                 >
@@ -50,7 +51,7 @@ const Footer = () => {
                 
                 {/* X/Twitter */}
                 <a 
-                  href="#" 
+                  href="https://x.com/fyreworksco" 
                   className="hover:opacity-70 transition"
                   aria-label="X / Twitter"
                 >
@@ -66,7 +67,7 @@ const Footer = () => {
                 
                 {/* Instagram */}
                 <a 
-                  href="#" 
+                  href="https://instagram.com/fyreworksco" 
                   className="hover:opacity-70 transition"
                   aria-label="Instagram"
                 >
@@ -82,7 +83,7 @@ const Footer = () => {
                 
                 {/* TikTok */}
                 <a 
-                  href="#" 
+                  href="https://tiktok.com/@fyreworksco" 
                   className="hover:opacity-70 transition"
                   aria-label="TikTok"
                 >
@@ -95,7 +96,6 @@ const Footer = () => {
                     <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
                   </svg>
                 </a>
-              </div>
             </div>
           </div>
         </div>

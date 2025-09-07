@@ -1,96 +1,125 @@
-import { motion } from "framer-motion";
-import robotImage from "@assets/image_1752411699260.png";
+import React, { useEffect, useState } from 'react';
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [greeting, setGreeting] = useState('Hello');
+
+  useEffect(() => {
+    // Set greeting based on time of day
+    const now = new Date();
+    const hour = now.getHours();
+    
+    if (hour >= 5 && hour < 12) {
+      setGreeting('Good Morning');
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting('Good Afternoon');
+    } else {
+      setGreeting('Good Evening');
+    }
+
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section id="hero" className="min-h-screen relative bg-black overflow-hidden">
-      {/* Centered Image Container */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.img 
-          src={robotImage} 
-          alt="Three robotic figures in traditional African attire having a conversation"
-          className="max-h-[85vh] max-w-[95vw] object-contain rounded-lg shadow-2xl"
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-      </div>
-      
-      {/* Black blur overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
-      
-      {/* Left blur overlay */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
-      
-      {/* Text content overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1 
-              className="text-4xl md:text-7xl font-bold mb-8 flex flex-col"
-              style={{ letterSpacing: '-0.05em' }}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <span>Don't build a brand.</span>
-              <span>Build a movement.</span>
-            </motion.h1>
-            
-            <motion.div
-              className="spark-line my-8 w-0 mx-auto"
-              initial={{ width: "0%" }}
-              animate={{ 
-                width: ["0%", "100%", "0%"],
-                opacity: [0.4, 1, 0.4]
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            />
-            
+    <section className="min-h-[40vh] sm:min-h-[70vh] lg:min-h-screen bg-black text-white flex items-center justify-center relative overflow-hidden">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8">
+        {/* Main Typography Container - Pushed down for better mobile spacing */}
+        <div className="relative flex items-center justify-center min-h-[25vh] sm:min-h-[30vh] lg:min-h-[45vh] mt-20 sm:mt-8 lg:-mt-4">
+          <div className="w-full max-w-7xl text-center">
+            {/* Time-based Greeting */}
+            <div className={`mb-4 sm:mb-8 lg:mb-12 transition-all duration-1000 ease-out
+                          ${isVisible 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: '0.05s' }}>
+              <p className="text-sm lg:text-base text-gray-400 font-light tracking-wide uppercase">
+                {greeting}
+              </p>
+            </div>
 
+            {/* Large Staggered Typography - Proper line spacing */}
+            <div className="space-y-0 sm:space-y-1 lg:space-y-2">
+            {/* Line 1 - WE HELP */}
+            <div className="relative">
+              <h1 className={`text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
+                           font-bold uppercase leading-[0.8] tracking-tight
+                           transform transition-all duration-1000 ease-out
+                           ${isVisible 
+                             ? '-translate-x-1 sm:-translate-x-8 lg:-translate-x-12 translate-y-0 opacity-100' 
+                             : '-translate-x-8 sm:-translate-x-16 lg:-translate-x-28 translate-y-6 opacity-0'}`}
+                  style={{ fontFamily: 'var(--sf-display)', transitionDelay: '0.1s' }}>
+                WE HELP
+              </h1>
+            </div>
+
+            {/* Line 2 - VISIONARIES */}
+            <h1 className={`text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
+                          font-bold uppercase leading-[0.8] tracking-tight
+                          transform transition-all duration-1000 ease-out
+                          ${isVisible 
+                            ? 'translate-x-1 sm:translate-x-12 lg:translate-x-20 translate-y-0 opacity-100' 
+                            : 'translate-x-12 sm:translate-x-20 lg:translate-x-36 translate-y-6 opacity-0'}`}
+                style={{ fontFamily: 'var(--sf-display)', transitionDelay: '0.3s' }}>
+              VISIONARIES
+            </h1>
+
+            {/* Line 3 - BUILD with descriptive copy */}
+            <div className="relative flex items-center lg:items-end justify-center">
+              <h1 className={`text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
+                           font-bold uppercase leading-[0.8] tracking-tight
+                           transform transition-all duration-1000 ease-out
+                           ${isVisible 
+                             ? '-translate-x-2 sm:-translate-x-10 lg:-translate-x-20 translate-y-0 opacity-100' 
+                             : '-translate-x-10 sm:-translate-x-20 lg:-translate-x-36 translate-y-6 opacity-0'}`}
+                  style={{ fontFamily: 'var(--sf-display)', transitionDelay: '0.5s' }}>
+                BUILD
+              </h1>
+              
+              {/* Descriptive copy beside BUILD - desktop only */}
+              <div className={`hidden lg:block lg:ml-16 xl:ml-24 lg:mb-4 xl:mb-6 max-w-xs xl:max-w-sm
+                            transition-all duration-1000 ease-out
+                            ${isVisible 
+                              ? 'translate-y-0 opacity-100' 
+                              : 'translate-y-8 opacity-0'}`}
+                  style={{ transitionDelay: '0.8s' }}>
+                <p className="text-sm lg:text-base text-gray-300 leading-relaxed font-bold text-left">
+                  We are FYREWORKS, a creative studio, we turn bold ideas into brand movements people believe in.
+                </p>
+              </div>
+            </div>
+
+            {/* Line 4 - MOVEMENTS */}
+            <h1 className={`text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
+                          font-bold uppercase leading-[0.8] tracking-tight
+                          transform transition-all duration-1000 ease-out
+                          ${isVisible 
+                            ? 'translate-x-1 sm:translate-x-6 lg:translate-x-12 translate-y-0 opacity-100' 
+                            : 'translate-x-8 sm:translate-x-16 lg:translate-x-28 translate-y-6 opacity-0'}`}
+                style={{ fontFamily: 'var(--sf-display)', transitionDelay: '0.7s' }}>
+              MOVEMENTS<span className="text-red-500 animate-pulse" style={{animationDuration: '2s'}}>.</span>
+            </h1>
+            </div>
           </div>
         </div>
+
+        {/* Mobile descriptive copy - outside main container for proper spacing */}
+        <div className={`lg:hidden mt-4 sm:mt-6 max-w-sm mx-auto px-6
+                      transition-all duration-1000 ease-out
+                      ${isVisible 
+                        ? 'translate-y-0 opacity-100' 
+                        : 'translate-y-8 opacity-0'}`}
+            style={{ transitionDelay: '0.9s' }}>
+          <p className="text-sm text-gray-300 leading-relaxed font-light text-center">
+            <span className="font-bold">We are FYREWORKS,</span><br />
+            a creative studio, we turn bold ideas into brand movements people believe in.
+          </p>
+        </div>
+
       </div>
-      
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 right-8 text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-      >
-        <a 
-          href="#what-we-do" 
-          className="inline-block"
-          aria-label="Scroll to What We Do section"
-        >
-          <motion.svg 
-            className="w-6 h-6" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth="2" 
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </motion.svg>
-        </a>
-      </motion.div>
     </section>
   );
 };

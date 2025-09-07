@@ -13,7 +13,7 @@ const CallToFireSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            An idea can set the world on fire.
+             
           </motion.h2>
           
           <motion.div

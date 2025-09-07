@@ -4,12 +4,11 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import CallToFireSection from "@/components/CallToFireSection";
+import IdeaFireSection from "@/components/IdeaFireSection";
+import ClientCarousel from "@/components/ClientCarousel";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import HowWeDoItSection from "@/components/HowWeDoItSection";
 import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
-import SignatureBeliefSection from "@/components/SignatureBeliefSection";
-import CallToActionSection from "@/components/CallToActionSection";
 import JoinTheMovementSection from "@/components/JoinTheMovementSection";
 import Footer from "@/components/Footer";
 
@@ -24,12 +23,11 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <HeroSection />
-          <CallToFireSection />
+          <IdeaFireSection />
+          <ClientCarousel />
           <WhatWeDoSection />
-          <HowWeDoItSection />
+          {/* <HowWeDoItSection /> */}
           <WhoWeWorkWithSection />
-          <SignatureBeliefSection />
-          <CallToActionSection />
           <JoinTheMovementSection />
         </main>
         <Footer />
