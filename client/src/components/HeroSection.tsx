@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Sun, Sunset, Moon } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [greeting, setGreeting] = useState('Hello');
+  const [greeting, setGreeting] = useState({ text: 'Hello', icon: Sun });
 
   useEffect(() => {
     // Set greeting based on time of day
@@ -10,11 +11,11 @@ const HeroSection: React.FC = () => {
     const hour = now.getHours();
     
     if (hour >= 5 && hour < 12) {
-      setGreeting('Good Morning');
+      setGreeting({ text: 'Good Morning', icon: Sun });
     } else if (hour >= 12 && hour < 17) {
-      setGreeting('Good Afternoon');
+      setGreeting({ text: 'Good Afternoon', icon: Sunset });
     } else {
-      setGreeting('Good Evening');
+      setGreeting({ text: 'Good Evening', icon: Moon });
     }
 
     // Trigger animations after component mounts
@@ -27,6 +28,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="min-h-[40vh] sm:min-h-[70vh] lg:min-h-screen bg-black text-white flex items-center justify-center relative overflow-hidden">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8">
+
         {/* Main Typography Container - Pushed down for better mobile spacing */}
         <div className="relative flex items-center justify-center min-h-[25vh] sm:min-h-[30vh] lg:min-h-[45vh] mt-20 sm:mt-8 lg:-mt-4">
           <div className="w-full max-w-7xl text-center">
@@ -36,9 +38,12 @@ const HeroSection: React.FC = () => {
                             ? 'translate-y-0 opacity-100' 
                             : 'translate-y-4 opacity-0'}`}
                 style={{ transitionDelay: '0.05s' }}>
-              <p className="text-sm lg:text-base text-gray-400 font-light tracking-wide uppercase">
-                {greeting}
-              </p>
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                <greeting.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-yellow-400" />
+                <p className="text-sm lg:text-base text-gray-400 font-bold tracking-wide uppercase">
+                  {greeting.text}
+                </p>
+              </div>
             </div>
 
             {/* Large Staggered Typography - Proper line spacing */}
@@ -102,6 +107,18 @@ const HeroSection: React.FC = () => {
                 style={{ fontFamily: 'var(--sf-display)', transitionDelay: '0.7s' }}>
               MOVEMENTS<span className="text-red-500 animate-pulse" style={{animationDuration: '2s'}}>.</span>
             </h1>
+            </div>
+          </div>
+          
+          {/* Rocket Animation */}
+          <div className={`absolute bottom-4 right-4 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12
+                        transition-all duration-2000 ease-out
+                        ${isVisible 
+                          ? 'translate-x-0 translate-y-0 opacity-100 scale-100' 
+                          : 'translate-x-20 translate-y-20 opacity-0 scale-50'}`}
+              style={{ transitionDelay: '1.2s' }}>
+            <div className="text-4xl sm:text-5xl lg:text-6xl animate-bounce">
+              🚀
             </div>
           </div>
         </div>
