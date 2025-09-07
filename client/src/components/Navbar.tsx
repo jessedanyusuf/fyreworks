@@ -28,7 +28,7 @@ const Navbar = () => {
     <header>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${navbarBg}`}>
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#" className="text-2xl font-black transition-all" style={{ letterSpacing: '-0.05em' }}>
+          <a href="#" className="text-2xl transition-all" style={{ letterSpacing: '-0.05em', fontFamily: 'SF Pro Display', fontWeight: '900' }}>
             FYREWORKS
           </a>
           
