@@ -8,20 +8,11 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# SPA fallback rule - exclude common social media crawlers
+# SPA fallback rule
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
-  conditions = {Role = ["visitor"]}
-
-# Ensure root serves index.html directly for social media crawlers
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-  force = false
 
 # Optional: Force HTTPS
 [[redirects]]
