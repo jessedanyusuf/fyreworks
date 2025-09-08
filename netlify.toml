@@ -8,7 +8,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# SPA fallback rule
+# SPA fallback rule - serve index.html for all routes that don't match static files
 [[redirects]]
   from = "/*"
   to = "/index.html"
