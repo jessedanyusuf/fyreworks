@@ -103,11 +103,8 @@ const Footer = () => {
         <div className="text-center">
           <div className="mb-8">
             <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight break-words" style={{ letterSpacing: '-0.05em' }}>
-              ©FYREWORKS SINCE 2016-TMRW
+              ©FYREWORKS HELPING BRANDS AND BUSINESSES TRANSFORM THEIR IDEAS INTO MOVEMENTS. SINCE 2016-TMRW
             </h2>
-            <h3 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight break-words mt-6" style={{ letterSpacing: '-0.05em' }}>
-              HELPING BRANDS AND BUSINESSES TRANSFORM THEIR IDEAS INTO MOVEMENTS.
-            </h3>
           </div>
           <div className="text-sm opacity-70">
             <p style={{ letterSpacing: '-0.05em' }}>All rights reserved.</p>

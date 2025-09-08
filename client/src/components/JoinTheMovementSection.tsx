@@ -12,7 +12,7 @@ const JoinTheMovementSection = () => {
       subtitle: "The community for creators, by creators",
       description: "Where creative minds gather, collaborate, and celebrate wins together. More than a network—it's your creative collective.",
       ctaText: "Join CAMPFYRE",
-      ctaSubtext: "Ready to connect?",
+      ctaSubtext: "READY TO CONNECT?",
       link: "https://www.campfyre.co",
       comingSoon: false,
       image: campfyreImage
@@ -22,7 +22,7 @@ const JoinTheMovementSection = () => {
       subtitle: "Coming Soon",
       description: "Empowering visionaries with the resources to turn bold ideas into reality. The bridge between creative potential and capital.",
       ctaText: "Get Early Access",
-      ctaSubtext: "Be the first to know",
+      ctaSubtext: "BE THE FIRST TO KNOW",
       link: null,
       comingSoon: true,
       image: fyreworks3dLogo
