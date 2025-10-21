@@ -9,6 +9,7 @@ import ClientCarousel from "@/components/ClientCarousel";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
 import HowWeDoItSection from "@/components/HowWeDoItSection";
 import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
+import ManifestoSection from "@/components/ManifestoSection";
 import JoinTheMovementSection from "@/components/JoinTheMovementSection";
 import Footer from "@/components/Footer";
 
@@ -28,6 +29,7 @@ function App() {
           <WhatWeDoSection />
           {/* <HowWeDoItSection /> */}
           <WhoWeWorkWithSection />
+          <ManifestoSection />
           <JoinTheMovementSection />
         </main>
         <Footer />

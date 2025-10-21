@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import moonImage from '../assets/moon.png';
 import rocketImage from '../assets/rocket.png';
 import earthImage from '../assets/earth.png';
@@ -8,6 +8,14 @@ const IdeaFireSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
   const [isVisible, setIsVisible] = useState(false);
+
+  // Scroll-based rocket animation
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"] // Track from when section enters to when it exits
+  });
+
+  const rocketY = useTransform(scrollYProgress, [0, 0.5, 1], [200, 0, -300]);
 
   useEffect(() => {
     if (isInView) {
@@ -163,13 +171,13 @@ const IdeaFireSection: React.FC = () => {
               <motion.div
                 className="absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                          w-32 h-32 sm:w-44 sm:h-44 lg:w-60 lg:h-60 xl:w-72 xl:h-72 z-10"
-                initial={{ opacity: 0, y: 100, scale: 0.2 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={isVisible ? { 
-                  opacity: 1, 
-                  y: 0, 
+                  opacity: 1,
                   scale: 1,
-                  transition: { duration: 1.5, ease: "easeOut", delay: 0.7 }
+                  transition: { duration: 0.8, ease: "easeOut" }
                 } : {}}
+                style={{ y: rocketY }}
               >
                 <motion.img 
                   src={rocketImage} 
