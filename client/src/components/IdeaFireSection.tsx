@@ -51,7 +51,7 @@ const IdeaFireSection: React.FC = () => {
                 <h1 className="text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
                              font-bold uppercase leading-none tracking-tight"
                     style={{ fontFamily: 'var(--sf-display)' }}>
-                  AN IDEA
+                  YOUR IDEA
                 </h1>
                 
                 {/* Moon above IDEA - shifted right */}
