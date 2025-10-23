@@ -35,7 +35,7 @@ const IdeaFireSection: React.FC = () => {
           <div className="w-full max-w-6xl text-center">
             
             {/* Redesigned Typography with Tight Line Spacing */}
-            <div className="space-y-0 sm:space-y-1 lg:space-y-2 relative">
+            <div className="space-y-0 relative">
               
               {/* Line 1 - AN IDEA */}
               <motion.div
@@ -48,7 +48,7 @@ const IdeaFireSection: React.FC = () => {
                   transition: { duration: 1.0, ease: "easeOut", delay: 0.2 }
                 } : {}}
               >
-                <h1 className="text-[11vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[9vw] xl:text-[8vw] 2xl:text-[7vw] 
+                <h1 className="text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
                              font-bold uppercase leading-none tracking-tight"
                     style={{ fontFamily: 'var(--sf-display)' }}>
                   AN IDEA
@@ -57,7 +57,7 @@ const IdeaFireSection: React.FC = () => {
                 {/* Moon above IDEA - shifted right */}
                 <motion.div
                   className="absolute -top-8 sm:-top-12 lg:-top-16 xl:-top-20 right-8 sm:right-12 lg:right-16 xl:right-20
-                           w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 xl:w-32 xl:h-32 z-10"
+                           w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 z-10"
                   initial={{ opacity: 0, scale: 0.3, rotate: -90 }}
                   animate={isVisible ? { 
                     opacity: 1, 
@@ -94,7 +94,7 @@ const IdeaFireSection: React.FC = () => {
                   transition: { duration: 1.0, ease: "easeOut", delay: 0.4 }
                 } : {}}
               >
-                <h1 className="text-[11vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[9vw] xl:text-[8vw] 2xl:text-[7vw] 
+                <h1 className="text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
                              font-bold uppercase leading-none tracking-tight"
                     style={{ fontFamily: 'var(--sf-display)' }}>
                   CAN SET
@@ -112,7 +112,7 @@ const IdeaFireSection: React.FC = () => {
                   transition: { duration: 1.0, ease: "easeOut", delay: 0.6 }
                 } : {}}
               >
-                <h1 className="text-[11vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[9vw] xl:text-[8vw] 2xl:text-[7vw] 
+                <h1 className="text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
                              font-bold uppercase leading-none tracking-tight"
                     style={{ fontFamily: 'var(--sf-display)' }}>
                   THE WORLD
@@ -130,7 +130,7 @@ const IdeaFireSection: React.FC = () => {
                   transition: { duration: 1.0, ease: "easeOut", delay: 0.8 }
                 } : {}}
               >
-                <h1 className="text-[11vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[9vw] xl:text-[8vw] 2xl:text-[7vw] 
+                <h1 className="text-[13vw] sm:text-[10vw] md:text-[8vw] lg:text-[11vw] xl:text-[10vw] 2xl:text-[9vw] 
                              font-bold uppercase leading-none tracking-tight"
                     style={{ fontFamily: 'var(--sf-display)' }}>
                   ON FIRE
@@ -139,7 +139,7 @@ const IdeaFireSection: React.FC = () => {
                 {/* Earth below FIRE - much bigger and shifted left */}
                 <motion.div
                   className="absolute top-full left-8 sm:left-12 lg:left-16 xl:left-20 -mt-8 sm:-mt-12 lg:-mt-16 xl:-mt-20
-                           w-32 h-32 sm:w-44 sm:h-44 lg:w-64 lg:h-64 xl:w-80 xl:h-80 z-10"
+                           w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10"
                   initial={{ opacity: 0, scale: 0.4, y: 30 }}
                   animate={isVisible ? { 
                     opacity: 1, 
@@ -170,7 +170,7 @@ const IdeaFireSection: React.FC = () => {
               {/* Rocket floating between lines 2 and 3 - bigger and pushed up */}
               <motion.div
                 className="absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                         w-32 h-32 sm:w-44 sm:h-44 lg:w-60 lg:h-60 xl:w-72 xl:h-72 z-10"
+                         w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 xl:w-96 xl:h-96 z-10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isVisible ? { 
                   opacity: 1,

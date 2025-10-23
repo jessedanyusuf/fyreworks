@@ -7,70 +7,44 @@ const WhatWeDoSection = () => {
 
   const capabilities = [
     {
-      name: "Brand Strategy & Positioning",
-      description: "We dig deep to uncover what makes your vision unique, then craft a strategic foundation that gives your brand clarity, direction, and unstoppable momentum.",
-      services: [
-        "Brand positioning & differentiation",
-        "Messaging framework development", 
-        "Competitive analysis & market positioning",
-        "Brand architecture & naming",
-        "Voice & tone development"
-      ]
+      name: "Branding",
+      description: "We craft distinctive brand identities that capture your vision and resonate with your audience. From strategy to visual expression, we build brands that stand out and stand for something.",
     },
     {
-      name: "Story & Content Creation",
-      description: "Every movement needs a story worth spreading. We develop authentic narratives that connect with your audience on a human level—turning your mission into messages that move people to action.",
-      services: [
-        "Brand storytelling & narrative development",
-        "Content strategy & planning",
-        "Copywriting & messaging",
-        "Video & podcast production",
-        "Social media content creation"
-      ]
+      name: "Brand Storytelling",
+      description: "Your story is your superpower. We develop authentic narratives that connect with people on a human level, turning your mission into messages that inspire action and build movements.",
     },
     {
-      name: "Visual Identity & Design",
-      description: "Your vision deserves a visual language that commands attention. We create bold, cohesive identities that don't just look good—they feel right, communicate clearly, and leave lasting impressions.",
-      services: [
-        "Logo & brand mark design",
-        "Visual identity systems",
-        "Brand guidelines & style guides",
-        "Print & digital design",
-        "Packaging & merchandise design"
-      ]
+      name: "Content Strategy",
+      description: "Strategic content that moves people. We create comprehensive content frameworks that align with your goals, engage your audience, and drive meaningful results across all platforms.",
+    },
+    {
+      name: "Visual Identity",
+      description: "Bold visuals that command attention. We design cohesive visual systems—from logos to brand guidelines—that don't just look good, they communicate clearly and leave lasting impressions.",
+    },
+    {
+      name: "Photography",
+      description: "Powerful imagery that tells your story. We create compelling visual content that captures the essence of your brand and connects with your audience on an emotional level.",
+    },
+    {
+      name: "Web Design",
+      description: "Digital experiences that convert. We design and develop websites that are beautiful, functional, and optimized to turn visitors into believers in your movement.",
+    },
+    {
+      name: "Podcast Production",
+      description: "Your voice, amplified. From concept to distribution, we produce high-quality podcasts that build authority, foster community, and spread your message to the world.",
     },
     {
       name: "Experience Design",
-      description: "Whether digital or physical, we craft experiences that bring your brand to life. From websites that convert to events that inspire, we design touchpoints that turn first encounters into lifelong believers.",
-      services: [
-        "Website design & development",
-        "User experience (UX) design",
-        "Event & activation design",
-        "Digital product design",
-        "Customer journey mapping"
-      ]
+      description: "Memorable moments that matter. Whether digital or physical, we craft experiences that bring your brand to life and turn first encounters into lifelong believers.",
     },
     {
       name: "Movement Building",
-      description: "Ideas become movements when people feel compelled to join in. We help you build communities, create conversations, and turn customers into champions who carry your vision forward.",
-      services: [
-        "Community strategy & building",
-        "Social media strategy",
-        "Influencer & partnership programs",
-        "Brand ambassador programs",
-        "Grassroots marketing campaigns"
-      ]
+      description: "Turn customers into champions. We help you build engaged communities and create conversations that transform passive audiences into active advocates for your vision.",
     },
     {
-      name: "Launch & Growth Strategy",
-      description: "Ready to make your mark? We develop comprehensive launch strategies and growth frameworks that don't just get you noticed—they get you remembered, shared, and sought after.",
-      services: [
-        "Go-to-market strategy",
-        "Campaign development & execution",
-        "PR & media strategy",
-        "Growth marketing",
-        "Performance tracking & optimization"
-      ]
+      name: "Launch Strategy",
+      description: "Make your mark. We develop comprehensive go-to-market strategies and growth frameworks that don't just get you noticed—they get you remembered, shared, and sought after.",
     }
   ];
 
@@ -101,129 +75,70 @@ const WhatWeDoSection = () => {
 
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left Navigation */}
-            <div className="space-y-8">
+            {/* Left: Services List */}
+            <div className="space-y-0">
               {capabilities.map((capability, index) => (
                 <motion.div
                   key={index}
-                  className="relative"
+                  className="relative pl-0"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  onHoverStart={() => setActiveCapability(index)}
+                  animate={activeCapability === index ? { x: 12 } : { x: 0 }}
                 >
                   <motion.button
                     onClick={() => setActiveCapability(index)}
-                    className={`w-full text-left py-6 transition-all duration-500 ${
+                    className={`w-full text-left py-2 transition-all duration-300 ${
                       activeCapability === index
                         ? 'text-white'
-                        : 'text-gray-400 hover:text-gray-200'
+                        : 'text-gray-600 hover:text-gray-400'
                     }`}
-                    whileHover={{ 
-                      scale: 1.02,
-                      x: 10,
-                      transition: { duration: 0.3 }
-                    }}
                     whileTap={{ scale: 0.98 }}
+                    whileHover={{ x: 8 }}
                   >
-                    <motion.h3 
-                      className={`text-2xl lg:text-3xl font-bold mb-4 transition-all duration-500 ${
-                        activeCapability === index ? 'text-white' : 'text-gray-400'
-                      }`}
-                      animate={activeCapability === index ? {
-                        textShadow: "0 0 20px rgba(255,255,255,0.3)"
-                      } : {}}
-                    >
+                    <h3 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                       {capability.name}
-                    </motion.h3>
-                    
-                    <motion.div 
-                      className={`h-0.5 transition-all duration-500 ${
-                        activeCapability === index ? 'bg-white' : 'bg-gray-600'
-                      }`}
-                      animate={activeCapability === index ? {
-                        width: "100%",
-                        boxShadow: "0 0 10px rgba(255,255,255,0.5)"
-                      } : {
-                        width: "4rem"
-                      }}
-                    />
+                    </h3>
                   </motion.button>
-                  
                 </motion.div>
               ))}
             </div>
 
-            {/* Right Content */}
+            {/* Right: Details Panel */}
             <div className="relative flex items-start">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCapability}
-                  initial={{ opacity: 0, x: 30, y: 20 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  exit={{ opacity: 0, x: -30, y: -20 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="w-full"
-                  style={{ 
-                    transform: `translateY(${activeCapability * 8}rem)` 
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ 
+                    opacity: 1, 
+                    x: 0,
+                    y: activeCapability * 80
                   }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: "easeInOut",
+                    y: { duration: 0.4, ease: "easeOut" }
+                  }}
+                  className="w-full"
                 >
                   <motion.div 
-                    className="p-8"
+                    className="p-8 lg:p-12"
                     initial={{ scale: 0.95 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <motion.h3 
-                      className="text-2xl font-bold mb-6 text-white"
+                    <motion.p 
+                      className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                      {capabilities[activeCapability].name}
-                    </motion.h3>
-          
-          <motion.p 
-                      className="text-gray-300 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-          >
                       {capabilities[activeCapability].description}
-          </motion.p>
-          
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                    >
-                      <h4 className="text-lg font-semibold mb-4 text-white">Services:</h4>
-                      <ul className="space-y-3">
-                        {capabilities[activeCapability].services.map((service, serviceIndex) => (
-                          <motion.li 
-                            key={serviceIndex} 
-                            className="flex items-start group"
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, delay: 0.4 + serviceIndex * 0.1 }}
-                            whileHover={{ x: 5 }}
-                          >
-                            <motion.span 
-                              className="text-red-500 mr-3 mt-1 group-hover:text-red-400 transition-colors duration-300"
-                              animate={{ 
-                                scale: [1, 1.2, 1],
-                                transition: { duration: 0.6, delay: 0.5 + serviceIndex * 0.1 }
-                              }}
-                            >
-                              •
-                            </motion.span>
-                            <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                              {service}
-                            </span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </motion.div>
+                    </motion.p>
                   </motion.div>
                 </motion.div>
               </AnimatePresence>
@@ -248,7 +163,7 @@ const WhatWeDoSection = () => {
                 >
                   <div className="flex items-center justify-between">
                     <motion.h3 
-                      className="text-xl font-bold text-white pr-4 group-hover:text-gray-200 transition-colors duration-300"
+                      className="text-3xl font-bold leading-tight text-white pr-4 group-hover:text-gray-200 transition-colors duration-300"
                       whileHover={{ x: 5 }}
                     >
                       {capability.name}
@@ -297,46 +212,13 @@ const WhatWeDoSection = () => {
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
                         <motion.p 
-                          className="text-gray-300 mb-6 leading-relaxed"
+                          className="text-gray-300 leading-relaxed"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.4, delay: 0.2 }}
                         >
                           {capability.description}
                         </motion.p>
-                        
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: 0.3 }}
-                        >
-                          <h4 className="text-lg font-semibold mb-4 text-white">Services:</h4>
-                          <ul className="space-y-3">
-                            {capability.services.map((service, serviceIndex) => (
-                              <motion.li 
-                                key={serviceIndex} 
-                                className="flex items-start group"
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: 0.4 + serviceIndex * 0.1 }}
-                                whileHover={{ x: 5 }}
-                              >
-                                <motion.span 
-                                  className="text-red-500 mr-3 mt-1 flex-shrink-0 group-hover:text-red-400 transition-colors duration-300"
-                                  animate={{ 
-                                    scale: [1, 1.2, 1],
-                                    transition: { duration: 0.5, delay: 0.5 + serviceIndex * 0.1 }
-                                  }}
-                                >
-                                  •
-                                </motion.span>
-                                <span className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
-                                  {service}
-                                </span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        </motion.div>
                       </motion.div>
                     </motion.div>
                   )}
