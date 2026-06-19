@@ -1,120 +1,111 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "wouter";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { NAV_ITEMS, SITE } from "@/data/site";
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+export default function Navbar() {
+  const [location] = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial scroll position
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
 
-  const navbarBg = isScrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white";
-  
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header>
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${navbarBg}`}>
-        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#" className="text-2xl transition-all" style={{ letterSpacing: '-0.05em', fontFamily: 'SF Pro Display', fontWeight: '900' }}>
-            FYREWORKS
-          </a>
-          
-          <button 
-            className="focus:outline-none" 
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
-        </div>
-        
-        {/* Mobile menu */}
-        <motion.div 
-          className={`fixed inset-0 z-50 bg-black/95 backdrop-blur-sm ${mobileMenuOpen ? 'block' : 'hidden'}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {/* Exit button */}
-          <button 
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-6 right-6 text-white hover:opacity-70 transition-all"
-            aria-label="Close menu"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter] duration-300 ${
+        scrolled || open ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-16 md:h-20 flex items-center justify-between">
+        <Link href="/" className="text-sm tracking-[0.18em] font-medium uppercase">
+          {SITE.name}
+        </Link>
 
-          <div className="h-full flex flex-col items-center justify-center space-y-12 px-6">
-            <a 
-              href="#our-story" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Our Story
-            </a>
-            <a 
-              href="#what-we-do" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              What We Do
-            </a>
-            <a 
-              href="#what-weve-done" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              What We've Done
-            </a>
-            <a 
-              href="#how-we-do-it" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              How We Do It
-            </a>
-            <a 
-              href="#work-with-us" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Work With Us
-            </a>
-            <a 
-              href="#contact" 
-              className="text-4xl md:text-6xl font-bold hover:opacity-70 transition-all text-white"
-              style={{ letterSpacing: '-0.05em' }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </div>
-        </motion.div>
-      </nav>
+        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+          {NAV_ITEMS.map((item) => {
+            const active = location === item.href || location.startsWith(item.href + "/");
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm transition-colors hover:text-white ${
+                  active ? "text-white" : "text-white/60"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <button
+          className="md:hidden w-10 h-10 -mr-2 flex items-center justify-center"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="relative block w-5 h-[10px]">
+            <span
+              className={`absolute left-0 top-0 w-full h-px bg-white transition-transform duration-300 ${
+                open ? "translate-y-[5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 bottom-0 w-full h-px bg-white transition-transform duration-300 ${
+                open ? "-translate-y-[4px] -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            className="md:hidden overflow-hidden"
+            initial={reduce ? false : { height: 0 }}
+            animate={reduce ? undefined : { height: "auto" }}
+            exit={reduce ? undefined : { height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <nav className="px-6 pb-8 pt-2 flex flex-col" aria-label="Mobile">
+              {NAV_ITEMS.map((item) => {
+                const active = location === item.href || location.startsWith(item.href + "/");
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`py-3 text-2xl ${
+                      active ? "text-white" : "text-white/70"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -1,39 +1,37 @@
-import { useEffect } from "react";
-import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { Route, Switch } from "wouter";
+import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import IdeaFireSection from "@/components/IdeaFireSection";
-import ClientCarousel from "@/components/ClientCarousel";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
-import HowWeDoItSection from "@/components/HowWeDoItSection";
-import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
-import ManifestoSection from "@/components/ManifestoSection";
-import JoinTheMovementSection from "@/components/JoinTheMovementSection";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
+import Home from "@/pages/Home";
+import Studio from "@/pages/Studio";
+import Approach from "@/pages/Approach";
+import Work from "@/pages/Work";
+import WorkProject from "@/pages/WorkProject";
+import Lab from "@/pages/Lab";
+import LabProject from "@/pages/LabProject";
+import Journal from "@/pages/Journal";
+import Contact from "@/pages/Contact";
+import NotFound from "@/pages/not-found";
 
 function App() {
-  useEffect(() => {
-    document.title = "Fireworks — Build a movement";
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col overflow-x-hidden">
-        <Navbar />
-        <main className="flex-grow">
-          <HeroSection />
-          <IdeaFireSection />
-          <ClientCarousel />
-          <WhatWeDoSection />
-          {/* <HowWeDoItSection /> */}
-          <WhoWeWorkWithSection />
-          <ManifestoSection />
-          <JoinTheMovementSection />
-        </main>
-        <Footer />
-      </div>
+      <Layout>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/work" component={Work} />
+          <Route path="/work/:slug" component={WorkProject} />
+          <Route path="/lab" component={Lab} />
+          <Route path="/lab/:slug" component={LabProject} />
+          <Route path="/studio" component={Studio} />
+          <Route path="/approach" component={Approach} />
+          <Route path="/journal" component={Journal} />
+          <Route path="/journal/:slug" component={Journal} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
       <Toaster />
     </QueryClientProvider>
   );

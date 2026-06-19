@@ -5,6 +5,10 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--sf-display)"],
+        sans: ["var(--sf-text)"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -79,10 +83,15 @@ export default {
             height: "0",
           },
         },
+        blink: {
+          "0%, 50%": { opacity: "1" },
+          "50.01%, 100%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        blink: "blink 1s step-end infinite",
       },
     },
   },

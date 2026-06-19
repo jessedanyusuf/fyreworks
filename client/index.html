@@ -2,57 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>FYREWORKS: The creative studio helping visionaries build movements that matter.</title>
-    
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="FYREWORKS: The creative studio helping visionaries build movements that matter." />
-    <meta name="description" content="FYREWORKS: The creative studio helping visionaries build movements that matter. We transform bold ideas into powerful brand movements people believe in. We help visionaries, entrepreneurs, and businesses build authentic connections through strategic branding, web design, and digital experiences that inspire action and drive meaningful change." />
-    <meta name="keywords" content="creative studio, digital agency, branding, web design, movement building, visionaries, brand strategy, digital experiences" />
-    <meta name="author" content="FYREWORKS" />
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fyreworks — The creative studio for visionaries</title>
+
+    <meta name="title" content="Fyreworks — The creative studio for visionaries" />
+    <meta name="description" content="We turn ideas into brands people believe in. Creative direction for founders, builders, and culture-makers building what the world doesn't have yet." />
+    <meta name="author" content="Fyreworks" />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.fyreworks.co/" />
-    <meta property="og:title" content="FYREWORKS: The creative studio helping visionaries build movements that matter." />
-    <meta property="og:description" content="FYREWORKS: The creative studio helping visionaries build movements that matter. We transform bold ideas into powerful brand movements people believe in. We help visionaries, entrepreneurs, and businesses build authentic connections through strategic branding, web design, and digital experiences that inspire action and drive meaningful change." />
+    <meta property="og:title" content="Fyreworks — The creative studio for visionaries" />
+    <meta property="og:description" content="We turn ideas into brands people believe in. Creative direction for founders, builders, and culture-makers building what the world doesn't have yet." />
     <meta property="og:image" content="https://www.fyreworks.co/assets/fyreworks-logo-preview.png" />
     <meta property="og:image:secure_url" content="https://www.fyreworks.co/assets/fyreworks-logo-preview.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="FYREWORKS Creative Studio - Build Movements" />
-    <meta property="og:site_name" content="FYREWORKS" />
+    <meta property="og:image:alt" content="Fyreworks — Creative studio for visionaries" />
+    <meta property="og:site_name" content="Fyreworks" />
     <meta property="og:locale" content="en_US" />
-    <meta property="fb:app_id" content="your-facebook-app-id" />
-    
-    <!-- Twitter -->
+
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.fyreworks.co/" />
-    <meta property="twitter:title" content="FYREWORKS: The creative studio helping visionaries build movements that matter." />
-    <meta property="twitter:description" content="FYREWORKS: The creative studio helping visionaries build movements that matter. We transform bold ideas into powerful brand movements people believe in. We help visionaries, entrepreneurs, and businesses build authentic connections through strategic branding, web design, and digital experiences that inspire action and drive meaningful change." />
+    <meta property="twitter:title" content="Fyreworks — The creative studio for visionaries" />
+    <meta property="twitter:description" content="We turn ideas into brands people believe in. Creative direction for founders, builders, and culture-makers building what the world doesn't have yet." />
     <meta property="twitter:image" content="https://www.fyreworks.co/assets/fyreworks-logo-preview.png" />
-    <meta property="twitter:image:alt" content="FYREWORKS Creative Studio - Build Movements" />
-    
-    <!-- Additional Meta Tags -->
+    <meta property="twitter:image:alt" content="Fyreworks — Creative studio for visionaries" />
+
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
     <meta name="theme-color" content="#000000" />
-    
-    <!-- Favicon -->
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/x-icon" href="/favicon-16x16.ico" sizes="16x16" />
     <link rel="icon" type="image/x-icon" href="/favicon-32x32.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    
-    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
-    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-text">
+
+    <!-- Signature font (Autograf) + reliable handwriting fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Inter:wght@100..900&display=swap"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/autograf" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+
+    <!-- Netlify form detection (hidden, build-time only) -->
+    <form name="fyreworks-contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <textarea name="building"></textarea>
+      <input type="text" name="stage" />
+      <input type="text" name="engagement" />
+      <input type="text" name="start" />
+      <textarea name="notes"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
   </body>
 </html>
