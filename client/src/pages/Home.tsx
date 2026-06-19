@@ -130,17 +130,18 @@ export default function Home() {
 
       <ScrollReveal as="section" className="px-6 lg:px-12 py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto text-center">
+          <h2 className="font-display font-bold text-[9.5vw] md:text-[8.5vw] lg:text-[8vw] leading-[1.04] tracking-[-0.02em]">
+            Let's create
+            <br />
+            <RotatingWord words={["something", "impact", "stories", "future"]} trailing="" />
+            <br />
+            together.
+          </h2>
           <Link
             href="/contact"
-            className="group inline-block"
+            className="mt-10 md:mt-12 inline-block text-xs md:text-sm uppercase tracking-[0.18em] text-white/50 hover:text-white transition-colors"
           >
-            <h2 className="font-display font-bold text-[9.5vw] md:text-[8.5vw] lg:text-[8vw] leading-[1.04] tracking-[-0.02em] transition-colors group-hover:text-white/70">
-              Let's set the
-              <br />
-              world on fire,
-              <br />
-              together.
-            </h2>
+            Let's chat
           </Link>
         </div>
       </ScrollReveal>
