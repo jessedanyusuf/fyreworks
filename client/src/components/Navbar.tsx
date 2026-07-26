@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { NAV_ITEMS, SITE } from "@/data/site";
+import FyreworksMark from "@/components/FyreworksMark";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -34,7 +35,11 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-16 md:h-20 flex items-center justify-between">
-        <Link href="/" className="text-sm tracking-[0.18em] font-medium uppercase">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-sm tracking-[0.18em] font-medium uppercase"
+        >
+          <FyreworksMark className="h-4 w-4 md:h-[18px] md:w-[18px]" />
           {SITE.name}
         </Link>
 

@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --sf-display: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, system-ui, sans-serif;
-    --sf-text: "Inter", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, system-ui, sans-serif;
+    --sf-display: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, system-ui, sans-serif;
+    --sf-text: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, system-ui, sans-serif;
 
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;

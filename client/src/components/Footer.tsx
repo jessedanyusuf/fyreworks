@@ -1,4 +1,6 @@
+import { Link } from "wouter";
 import { SOCIAL_LINKS, SITE } from "@/data/site";
+import FyreworksMark from "@/components/FyreworksMark";
 
 function EnvelopeIcon() {
   return (
@@ -25,6 +27,10 @@ export default function Footer() {
     <footer className="mt-24 md:mt-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-8 md:gap-10">
+          <Link href="/" aria-label="Fyreworks home" className="text-white/90 hover:text-white transition-colors">
+            <FyreworksMark className="h-7 w-7 md:h-8 md:w-8" />
+          </Link>
+
           <a
             href={`mailto:${SITE.email}`}
             className="inline-flex items-center gap-3 text-base md:text-lg text-white hover:opacity-70 transition-opacity"
