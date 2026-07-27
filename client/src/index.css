@@ -35,6 +35,10 @@
 
   html {
     scroll-behavior: smooth;
+    /* Clip horizontal overflow at the root so the viewport stays the scroll
+       container. Doing this on a wrapper div instead would force its
+       overflow-y to `auto` and break scroll-linked animation. */
+    overflow-x: hidden;
   }
 
   body {

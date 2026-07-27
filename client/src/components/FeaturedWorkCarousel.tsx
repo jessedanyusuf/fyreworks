@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useTransform } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { FEATURED_WORK, type WorkProject } from "@/data/work";
+import { useElementScrollProgress } from "@/components/motion/useScrollOffset";
 
 interface CardProps {
   project: WorkProject;
@@ -12,6 +13,11 @@ function Card({ project }: CardProps) {
   const reduce = useReducedMotion();
   const frameRef = useRef<HTMLDivElement>(null);
   const [rot, setRot] = useState({ x: 0, y: 0 });
+
+  // Scroll-linked parallax for the image inside its frame. The image is taller
+  // than the frame so it has room to travel without exposing an edge.
+  const scrollProgress = useElementScrollProgress(frameRef);
+  const imageY = useTransform(scrollProgress, [0, 1], ["-6%", "6%"]);
 
   const handleMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (reduce) return;
@@ -40,13 +46,18 @@ function Card({ project }: CardProps) {
         style={{ transformStyle: "preserve-3d" }}
         className="relative aspect-[4/5] overflow-hidden bg-white/5 will-change-transform"
       >
-        <img
-          src={project.cover}
-          alt={project.name}
-          loading="lazy"
-          draggable={false}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] pointer-events-none select-none"
-        />
+        <motion.div
+          style={reduce ? undefined : { y: imageY }}
+          className="absolute inset-x-0 -top-[8%] h-[116%] will-change-transform"
+        >
+          <img
+            src={project.cover}
+            alt={project.name}
+            loading="lazy"
+            draggable={false}
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] pointer-events-none select-none"
+          />
+        </motion.div>
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"

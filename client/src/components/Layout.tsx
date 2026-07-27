@@ -34,7 +34,11 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [location]);
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden bg-black text-white">
+    // NB: no `overflow-x-hidden` here. Setting overflow-x on a wrapper forces
+    // overflow-y to compute to `auto`, which makes this div a scroll container
+    // and breaks scroll-linked animation (useScroll would track this element
+    // instead of the viewport). Horizontal clipping lives on `html` in index.css.
+    <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
       <main className="flex-grow pt-16 md:pt-20">
         <PageTransition pageKey={pageKeyFor(location)}>{children}</PageTransition>

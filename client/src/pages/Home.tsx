@@ -2,6 +2,8 @@ import { Link } from "wouter";
 import RotatingWord from "@/components/motion/RotatingWord";
 import RevealLine from "@/components/motion/RevealLine";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import Parallax from "@/components/motion/Parallax";
+import ParallaxHero from "@/components/motion/ParallaxHero";
 import FeaturedWorkCarousel from "@/components/FeaturedWorkCarousel";
 import ServicesList from "@/components/ServicesList";
 import { useSEO } from "@/lib/useSEO";
@@ -17,22 +19,24 @@ export default function Home() {
   return (
     <>
       <section className="px-6 lg:px-12 min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center">
-        <div className="w-full max-w-[1400px] mx-auto">
-          <h1 className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[0.95] tracking-[-0.02em] font-bold uppercase text-center">
-            <RevealLine trigger="load" delay={0.05}>
-              We are the
-            </RevealLine>
-            <RevealLine trigger="load" delay={0.13}>
-              creative
-            </RevealLine>
-            <RevealLine trigger="load" delay={0.21}>
-              studio for
-            </RevealLine>
-            <RevealLine trigger="load" delay={0.29}>
-              <RotatingWord />
-            </RevealLine>
-          </h1>
-        </div>
+        <ParallaxHero>
+          <div className="w-full max-w-[1400px] mx-auto">
+            <h1 className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[0.95] tracking-[-0.02em] font-bold uppercase text-center">
+              <RevealLine trigger="load" delay={0.05}>
+                We are the
+              </RevealLine>
+              <RevealLine trigger="load" delay={0.13}>
+                creative
+              </RevealLine>
+              <RevealLine trigger="load" delay={0.21}>
+                studio for
+              </RevealLine>
+              <RevealLine trigger="load" delay={0.29}>
+                <RotatingWord />
+              </RevealLine>
+            </h1>
+          </div>
+        </ParallaxHero>
       </section>
 
       <section className="px-6 lg:px-12 py-16 md:py-28">
@@ -44,28 +48,30 @@ export default function Home() {
           </h2>
 
           <div className="mt-12 md:mt-20 grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-8 md:col-start-5 space-y-5 text-xl md:text-2xl lg:text-3xl leading-snug font-display tracking-[-0.01em]">
-              <ScrollReveal>
-                <p>The world doesn't need more brands. It needs better ones.</p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.08}>
-                <p className="text-white/70">
-                  Built on belief, not buzz. Built to burn long, not out.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.16}>
-                <p>
-                  Built by people who make something from nothing, see everything in nothing, and
-                  by people who set the world on fire.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.24}>
-                <p className="text-white/70">By Visionaries.</p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.32}>
-                <p>That's who we're for.</p>
-              </ScrollReveal>
-            </div>
+            <Parallax distance={28} className="md:col-span-8 md:col-start-5">
+              <div className="space-y-5 text-xl md:text-2xl lg:text-3xl leading-snug font-display tracking-[-0.01em]">
+                <ScrollReveal>
+                  <p>The world doesn't need more brands. It needs better ones.</p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.08}>
+                  <p className="text-white/70">
+                    Built on belief, not buzz. Built to burn long, not out.
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.16}>
+                  <p>
+                    Built by people who make something from nothing, see everything in nothing,
+                    and by people who set the world on fire.
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.24}>
+                  <p className="text-white/70">By Visionaries.</p>
+                </ScrollReveal>
+                <ScrollReveal delay={0.32}>
+                  <p>That's who we're for.</p>
+                </ScrollReveal>
+              </div>
+            </Parallax>
           </div>
         </div>
       </section>
