@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import RotatingWord from "@/components/motion/RotatingWord";
+import RevealLine from "@/components/motion/RevealLine";
 import ScrollReveal from "@/components/motion/ScrollReveal";
 import FeaturedWorkCarousel from "@/components/FeaturedWorkCarousel";
 import ServicesList from "@/components/ServicesList";
 import { useSEO } from "@/lib/useSEO";
-import { FEATURED_WORK } from "@/data/work";
 
 export default function Home() {
   useSEO({
@@ -14,60 +14,59 @@ export default function Home() {
     path: "/",
   });
 
-  const hero = FEATURED_WORK[0];
-
   return (
     <>
-      <section className="px-6 lg:px-12 pt-10 md:pt-16 pb-8 md:pb-12">
-        <div className="max-w-[1400px] mx-auto">
-          <h1 className="font-display text-[9.5vw] md:text-[8.5vw] lg:text-[8vw] leading-[1.04] tracking-[-0.02em] font-bold">
-            The creative studio
-            <br />
-            for <RotatingWord />
+      <section className="px-6 lg:px-12 min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center">
+        <div className="w-full max-w-[1400px] mx-auto">
+          <h1 className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[0.95] tracking-[-0.02em] font-bold uppercase text-center">
+            <RevealLine trigger="load" delay={0.05}>
+              We are the
+            </RevealLine>
+            <RevealLine trigger="load" delay={0.13}>
+              creative
+            </RevealLine>
+            <RevealLine trigger="load" delay={0.21}>
+              studio for
+            </RevealLine>
+            <RevealLine trigger="load" delay={0.29}>
+              <RotatingWord />
+            </RevealLine>
           </h1>
-        </div>
-      </section>
-
-      <section className="px-6 lg:px-12 pb-14 md:pb-20">
-        <div className="max-w-[1400px] mx-auto">
-          <Link href={`/work/${hero.slug}`} className="group block">
-            <div className="relative aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-white/5">
-              <img
-                src={hero.cover}
-                alt={hero.name}
-                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
-              />
-            </div>
-          </Link>
         </div>
       </section>
 
       <section className="px-6 lg:px-12 py-16 md:py-28">
         <div className="max-w-[1400px] mx-auto">
-          <ScrollReveal>
-            <h2 className="font-display text-[9.5vw] md:text-[8.5vw] lg:text-[8vw] leading-[1.04] tracking-[-0.02em] font-bold">
-              Helping visionaries
-              <br />
-              build brands
-              <br />
-              that matter.
-            </h2>
-          </ScrollReveal>
+          <h2 className="font-display text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
+            <RevealLine>Helping visionaries</RevealLine>
+            <RevealLine delay={0.08}>build brands</RevealLine>
+            <RevealLine delay={0.16}>that matter.</RevealLine>
+          </h2>
 
-          <ScrollReveal className="mt-12 md:mt-20 grid md:grid-cols-12 gap-10">
+          <div className="mt-12 md:mt-20 grid md:grid-cols-12 gap-10">
             <div className="md:col-span-8 md:col-start-5 space-y-5 text-xl md:text-2xl lg:text-3xl leading-snug font-display tracking-[-0.01em]">
-              <p>The world doesn't need more brands. It needs better ones.</p>
-              <p className="text-white/70">
-                Built on belief, not buzz. Built to burn long, not out.
-              </p>
-              <p>
-                Built by people who make something from nothing, see everything in nothing, and by
-                people who set the world on fire.
-              </p>
-              <p className="text-white/70">By Visionaries.</p>
-              <p>That's who we're for.</p>
+              <ScrollReveal>
+                <p>The world doesn't need more brands. It needs better ones.</p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.08}>
+                <p className="text-white/70">
+                  Built on belief, not buzz. Built to burn long, not out.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.16}>
+                <p>
+                  Built by people who make something from nothing, see everything in nothing, and
+                  by people who set the world on fire.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.24}>
+                <p className="text-white/70">By Visionaries.</p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.32}>
+                <p>That's who we're for.</p>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -78,7 +77,7 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.18em] text-white/40">What do we do?</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.02em]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
                 Creative direction.
               </h2>
               <p className="text-xl md:text-2xl leading-snug text-white/70 max-w-[42ch]">
@@ -103,7 +102,7 @@ export default function Home() {
               </p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.02em]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
                 Transforming bold ideas into brands people believe in.
               </h2>
             </div>
@@ -128,23 +127,25 @@ export default function Home() {
         </div>
       </section>
 
-      <ScrollReveal as="section" className="px-6 lg:px-12 py-24 md:py-36">
+      <section className="px-6 lg:px-12 py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="font-display font-bold text-[9.5vw] md:text-[8.5vw] lg:text-[8vw] leading-[1.04] tracking-[-0.02em]">
-            Let's create
-            <br />
-            <RotatingWord words={["something", "impact", "stories", "future"]} trailing="" />
-            <br />
-            together.
+          <h2 className="font-display font-bold text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
+            <RevealLine>Let's create</RevealLine>
+            <RevealLine delay={0.08}>
+              <RotatingWord words={["something", "impact", "stories", "future"]} trailing="" />
+            </RevealLine>
+            <RevealLine delay={0.16}>together.</RevealLine>
           </h2>
-          <Link
-            href="/contact"
-            className="mt-10 md:mt-12 inline-block text-xs md:text-sm uppercase tracking-[0.18em] text-white/50 hover:text-white transition-colors"
-          >
-            Let's chat
-          </Link>
+          <ScrollReveal delay={0.28}>
+            <Link
+              href="/contact"
+              className="mt-10 md:mt-12 inline-block text-xs md:text-sm uppercase tracking-[0.18em] text-white/50 hover:text-white transition-colors"
+            >
+              Let's chat
+            </Link>
+          </ScrollReveal>
         </div>
-      </ScrollReveal>
+      </section>
     </>
   );
 }

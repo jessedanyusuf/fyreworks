@@ -57,7 +57,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-20 md:mt-32 px-6 lg:px-12">
-        <h2 className="font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[9.5vw] md:text-[7vw] lg:text-[5.5vw] uppercase text-center max-w-[1400px] mx-auto text-balance">
+        <h2 className="font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] uppercase text-center max-w-[1400px] mx-auto text-balance">
           ©{SITE.name} Helping visionaries build brands that matter. Since 2016&ndash;tmrw.
         </h2>
       </div>

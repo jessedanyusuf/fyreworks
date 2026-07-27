@@ -72,26 +72,18 @@ export default function RotatingWord({
   const cursorIdle = phase === "hold" || phase === "pause";
   const active = phase === "typing" || phase === "deleting";
 
+  // Natural width (no reserved ghost) so the line stays optically centred as
+  // the word types; the cursor travels with the text.
   return (
-    <span className="relative inline-block align-baseline">
-      <span className="invisible whitespace-nowrap" aria-hidden="true">
-        {longestWord}
-        {trailing}
-      </span>
+    <span className="whitespace-nowrap" aria-live="polite" aria-atomic="true">
+      {text}
       <span
-        className="absolute inset-0 whitespace-nowrap"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {text}
-        <span
-          aria-hidden="true"
-          className={`inline-block w-[0.04em] h-[0.78em] bg-white align-[-0.05em] ${
-            active ? "opacity-100" : cursorIdle ? "animate-blink" : "opacity-0"
-          }`}
-        />
-        {trailing && <span aria-hidden="true">{trailing}</span>}
-      </span>
+        aria-hidden="true"
+        className={`inline-block w-[0.04em] h-[0.78em] bg-white align-[-0.05em] ${
+          active ? "opacity-100" : cursorIdle ? "animate-blink" : "opacity-0"
+        }`}
+      />
+      {trailing && <span aria-hidden="true">{trailing}</span>}
     </span>
   );
 }

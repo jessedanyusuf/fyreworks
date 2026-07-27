@@ -41,7 +41,7 @@ export default function ServicesList() {
               {...handlers}
             >
               <span
-                className={`block font-display font-bold leading-[0.95] tracking-[-0.03em] transition-colors duration-500 ease-out text-[8vw] md:text-[6vw] lg:text-[5vw] ${
+                className={`block font-display font-bold leading-[0.95] tracking-[-0.03em] transition-colors duration-500 ease-out text-[7vw] md:text-[4.5vw] lg:text-[3.6vw] ${
                   isActive ? "text-white" : "text-white/25 group-hover:text-white/40"
                 }`}
               >
