@@ -1,5 +1,6 @@
-import { Link } from "wouter";
+import { useState } from "react";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import LabFolder from "@/components/LabFolder";
 import { useSEO } from "@/lib/useSEO";
 import { LAB } from "@/data/lab";
 
@@ -10,6 +11,9 @@ export default function Lab() {
       "Work without a client. Concept brands, speculative identities, ideas that wouldn't leave us alone.",
     path: "/lab",
   });
+
+  // Only one folder open at a time, so the grid never jumps in several places.
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   return (
     <>
@@ -25,55 +29,30 @@ export default function Lab() {
         </div>
       </section>
 
-      <section className="px-4 md:px-6 lg:px-12 py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto columns-2 lg:columns-3 gap-3 md:gap-6 lg:gap-10 [column-fill:_balance]">
-          {LAB.map((project, i) => {
-            // Staggered aspect ratios for masonry rhythm.
-            const aspects = ["aspect-[4/5]", "aspect-[3/4]", "aspect-[1/1]", "aspect-[5/6]", "aspect-[4/5]", "aspect-[3/2]"];
-            const aspect = aspects[i % aspects.length];
-            return (
-              <ScrollReveal
-                key={project.slug}
-                delay={i * 0.03}
-                className="break-inside-avoid mb-6 md:mb-12 lg:mb-20"
-              >
-                <Link href={`/lab/${project.slug}`} className="group block">
-                  <div className={`relative ${aspect} overflow-hidden bg-white/5`}>
-                    {project.cover ? (
-                      <img
-                        src={project.cover}
-                        alt={project.name}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <span className="font-display text-xl sm:text-2xl md:text-4xl lg:text-6xl text-white/30 tracking-[-0.02em] text-center px-3 md:px-6">
-                          {project.name}
-                        </span>
-                      </div>
-                    )}
-                    <span className="absolute top-2 left-2 right-2 md:top-4 md:left-4 md:right-4 flex items-center justify-between gap-1.5 text-[8px] md:text-[10px] uppercase tracking-[0.16em] md:tracking-[0.2em] text-white/75 pointer-events-none">
-                      <span className="bg-black/55 backdrop-blur-sm px-1.5 py-0.5 md:px-2 md:py-1 border border-white/20">
-                        LAB.{String(project.number).padStart(3, "0")}
-                      </span>
-                      <span className="bg-black/55 backdrop-blur-sm px-1.5 py-0.5 md:px-2 md:py-1 border border-white/20 truncate max-w-[55%]">
-                        {project.status} &middot; {project.year}
-                      </span>
-                    </span>
-                  </div>
-                  <div className="mt-2 md:mt-4 flex items-baseline justify-between gap-2">
-                    <h2 className="font-display text-sm md:text-lg lg:text-xl tracking-[-0.01em]">
-                      {project.name}
-                    </h2>
-                  </div>
-                  <p className="mt-1 md:mt-1.5 text-white/55 text-[11px] md:text-sm lg:text-base leading-snug max-w-[42ch]">
-                    {project.descriptor}
-                  </p>
-                </Link>
+      <section className="px-6 lg:px-12 py-12 md:py-20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-center justify-between mb-8 text-[10px] md:text-xs uppercase tracking-[0.22em] text-white/40">
+            <span>The archive</span>
+            <span aria-hidden="true">
+              {String(LAB.length).padStart(2, "0")} folders &middot; all locked
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10 items-start">
+            {LAB.map((project, i) => (
+              <ScrollReveal key={project.slug} delay={Math.min(i, 8) * 0.04}>
+                <LabFolder
+                  project={project}
+                  isOpen={openSlug === project.slug}
+                  onToggle={() =>
+                    setOpenSlug((current) =>
+                      current === project.slug ? null : project.slug
+                    )
+                  }
+                />
               </ScrollReveal>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
     </>
