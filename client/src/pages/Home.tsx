@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/motion/ScrollReveal";
 import Parallax from "@/components/motion/Parallax";
 import ParallaxHero from "@/components/motion/ParallaxHero";
 import FeaturedWorkCarousel from "@/components/FeaturedWorkCarousel";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import ServicesList from "@/components/ServicesList";
 import { useSEO } from "@/lib/useSEO";
 
@@ -18,30 +19,60 @@ export default function Home() {
 
   return (
     <>
-      <section className="px-6 lg:px-12 min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center">
+      <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20">
+        {/* Full-bleed backdrop. Sits behind everything; drifts slowly on scroll. */}
+        <HeroBackdrop />
+
         <ParallaxHero>
-          <div className="w-full max-w-[1400px] mx-auto">
-            <h1 className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[0.95] tracking-[-0.02em] font-bold uppercase text-center">
-              <RevealLine trigger="load" delay={0.05}>
-                We are the
-              </RevealLine>
-              <RevealLine trigger="load" delay={0.13}>
-                creative
-              </RevealLine>
-              <RevealLine trigger="load" delay={0.21}>
-                studio for
-              </RevealLine>
-              <RevealLine trigger="load" delay={0.29}>
-                <RotatingWord />
-              </RevealLine>
-            </h1>
+          <div className="relative px-6 lg:px-12 pb-14 md:pb-20">
+            <div className="max-w-[1400px] mx-auto">
+              {/* Sized so the longest rotating word still holds three lines.
+                  RotatingWord reserves the width of its longest entry, so the
+                  third line is always at its widest. */}
+              <h1 className="font-display text-[7.5vw] md:text-[7vw] lg:text-[6.5vw] leading-[0.92] tracking-[-0.03em] font-bold uppercase">
+                <RevealLine trigger="load" delay={0.05}>
+                  We are the
+                </RevealLine>
+                <RevealLine trigger="load" delay={0.13}>
+                  creative studio
+                </RevealLine>
+                <RevealLine trigger="load" delay={0.21}>
+                  for <RotatingWord />
+                </RevealLine>
+              </h1>
+
+              <div className="mt-10 md:mt-12 grid md:grid-cols-12 gap-8">
+                <div className="md:col-span-5 md:col-start-8 space-y-6">
+                  <ScrollReveal delay={0.4}>
+                    <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-[42ch]">
+                      We turn ideas into brands people believe in &mdash; through taste,
+                      judgement, and the discipline to decide what a brand should refuse to be.
+                    </p>
+                  </ScrollReveal>
+                  <ScrollReveal delay={0.48}>
+                    <Link
+                      href="/contact"
+                      className="group inline-flex items-center gap-3 rounded-full border border-white/25 pl-6 pr-2 py-2 text-sm hover:border-white/60 hover:bg-white/5 transition-colors"
+                    >
+                      Let's talk
+                      <span
+                        aria-hidden="true"
+                        className="grid place-items-center w-8 h-8 rounded-full bg-white text-black transition-transform group-hover:translate-x-0.5"
+                      >
+                        &rarr;
+                      </span>
+                    </Link>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </div>
           </div>
         </ParallaxHero>
       </section>
 
       <section className="px-6 lg:px-12 py-16 md:py-28">
         <div className="max-w-[1400px] mx-auto">
-          <h2 className="font-display text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
+          <h2 className="font-display text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
             <RevealLine>Helping visionaries</RevealLine>
             <RevealLine delay={0.08}>build brands</RevealLine>
             <RevealLine delay={0.16}>that matter.</RevealLine>
@@ -135,7 +166,7 @@ export default function Home() {
 
       <section className="px-6 lg:px-12 py-24 md:py-36">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="font-display font-bold text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
+          <h2 className="font-display font-bold text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
             <RevealLine>Let's create</RevealLine>
             <RevealLine delay={0.08}>
               <RotatingWord words={["something", "impact", "stories", "future"]} trailing="" />

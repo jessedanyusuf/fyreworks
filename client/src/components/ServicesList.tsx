@@ -32,7 +32,7 @@ export default function ServicesList() {
             };
 
         return (
-          <li key={s.word} className="border-t border-white/10 first:border-t-0">
+          <li key={s.word}>
             <button
               type="button"
               className="w-full text-left py-6 md:py-10 group"
