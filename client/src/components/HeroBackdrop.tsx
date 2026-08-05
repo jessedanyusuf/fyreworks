@@ -30,12 +30,15 @@ export default function HeroBackdrop() {
             srcSet="/hero-gradient-sm.webp"
             type="image/webp"
           />
+          {/* The subject sits ~70% across a 1.78-ratio frame. Centre-cropping
+              that into a tall phone viewport cuts it out completely, so the
+              crop is pulled right on narrow screens. */}
           <img
             src="/hero-gradient.webp"
             alt=""
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[72%_50%] md:object-center"
             onError={(e) => {
               // No image yet — fall back to the plain black hero.
               e.currentTarget.style.display = "none";
@@ -44,11 +47,12 @@ export default function HeroBackdrop() {
         </picture>
       </motion.div>
 
-      {/* Scrims are local rather than a full-cover wash, so the image keeps its
-          midtones. Bottom: contrast for the headline. Top: legibility for the
-          transparent navbar. */}
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black via-black/55 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
+      {/* The artwork is already almost entirely black, so the scrims are kept
+          deliberately light — anything heavier erases the glow and the figure,
+          which are the only things in the frame. Bottom seats the headline;
+          top just takes the edge off behind the navbar. */}
+      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent" />
     </div>
   );
 }
