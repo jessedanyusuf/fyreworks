@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { LabProject } from "@/data/lab";
 
 interface LabFolderProps {
@@ -16,7 +16,7 @@ function LockIcon({ className }: { className?: string }) {
       className={className}
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="1.7"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -27,104 +27,132 @@ function LockIcon({ className }: { className?: string }) {
   );
 }
 
+/** Folder silhouette: rounded body with a tab across the left of the top edge. */
+function FolderFace({ gradientId }: { gradientId: string }) {
+  return (
+    <svg
+      viewBox="0 0 300 190"
+      preserveAspectRatio="none"
+      className="absolute inset-0 w-full h-full"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.16)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0.05)" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M14 20 H118 q10 0 15 9 l8 14 q5 9 15 9 H286 q14 0 14 14 V176 q0 14 -14 14 H14 q-14 0 -14 -14 V34 q0 -14 14 -14 Z"
+        fill={`url(#${gradientId})`}
+        stroke="rgba(255,255,255,0.22)"
+        strokeWidth="1"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
+
 /**
- * A Lab entry drawn as a physical folder: a tab, a back wall, and a front
- * flap that tilts open on click to reveal the (currently locked) contents.
+ * A Lab entry drawn as a folder, after the reference: a folder face with a
+ * tab, a sheet that lifts out of it when opened, and the label beneath.
+ * Nothing here has material ready yet, so every folder is locked.
  */
 export default function LabFolder({ project, isOpen, onToggle }: LabFolderProps) {
   const reduce = useReducedMotion();
   const num = String(project.number).padStart(3, "0");
+  const gradientId = `folder-${project.slug}`;
 
   return (
-    <div className="group" style={{ perspective: "1200px" }}>
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        aria-label={`${project.name} — locked`}
-        className="w-full text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
-      >
-        {/* Tab */}
-        <div
-          className={`h-7 w-[46%] rounded-t-lg border border-b-0 transition-colors duration-300 ${
-            isOpen
-              ? "bg-white/[0.16] border-white/35"
-              : "bg-white/[0.10] border-white/25 group-hover:bg-white/[0.14] group-hover:border-white/35"
-          }`}
-          style={{ clipPath: "polygon(0 0, 82% 0, 100% 100%, 0 100%)" }}
-        />
-
-        {/* Body — lit from the top edge so it reads as a physical folder */}
-        <div
-          className={`relative rounded-b-lg rounded-tr-lg border overflow-hidden transition-colors duration-300 bg-gradient-to-b ${
-            isOpen
-              ? "from-white/[0.13] to-white/[0.06] border-white/35"
-              : "from-white/[0.09] to-white/[0.04] border-white/[0.18] group-hover:from-white/[0.13] group-hover:to-white/[0.06] group-hover:border-white/30"
-          }`}
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-expanded={isOpen}
+      aria-label={`${project.name} — locked`}
+      className={`group w-full text-left rounded-2xl border p-3 transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 ${
+        isOpen
+          ? "bg-white/[0.09] border-white/25"
+          : "bg-white/[0.035] border-white/10 hover:bg-white/[0.06] hover:border-white/20"
+      }`}
+    >
+      {/* Folder graphic. The sheet is tucked behind the face and rises out of
+          it when opened — the face occupies the lower part of the box so the
+          sheet has somewhere to emerge into. */}
+      <div className="relative h-[168px] md:h-[182px] overflow-hidden rounded-lg">
+        <motion.div
+          animate={reduce ? undefined : { y: isOpen ? 0 : 34 }}
+          initial={false}
+          transition={{ duration: 0.55, ease: EASE }}
+          className="absolute left-4 right-4 bottom-[74px] md:bottom-[84px] z-0"
         >
-          {/* Contents that rise from inside the folder when opened */}
-          <AnimatePresence initial={false}>
-            {isOpen && (
-              <motion.div
-                initial={reduce ? false : { height: 0, opacity: 0 }}
-                animate={reduce ? undefined : { height: "auto", opacity: 1 }}
-                exit={reduce ? undefined : { height: 0, opacity: 0 }}
-                transition={{ duration: 0.45, ease: EASE }}
-                className="overflow-hidden"
-              >
-                <div className="px-5 pt-5">
-                  <div className="rounded-md border border-dashed border-white/15 bg-black/40 px-4 py-5 flex items-center gap-3">
-                    <LockIcon className="w-4 h-4 shrink-0 text-white/45" />
-                    <div className="min-w-0">
-                      <p className="text-xs uppercase tracking-[0.2em] text-white/55">
-                        Locked
-                      </p>
-                      <p className="mt-1 text-sm text-white/45 leading-snug">
-                        This one isn't ready to be shown yet.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Front flap — tilts forward as the folder opens */}
-          <motion.div
-            animate={reduce ? undefined : { rotateX: isOpen ? -13 : 0 }}
-            transition={{ duration: 0.5, ease: EASE }}
-            style={{ transformOrigin: "bottom center", transformStyle: "preserve-3d" }}
-            className="relative p-5"
-          >
-            <div className="flex items-center justify-between gap-3 text-[10px] uppercase tracking-[0.2em] text-white/40">
-              <span className="text-white/60">LAB.{num}</span>
-              <span className="inline-flex items-center gap-1.5">
-                <LockIcon className="w-3 h-3" />
-                Locked
-              </span>
+          <div className="rounded-t-md border border-b-0 border-white/20 bg-[#161616] px-3 pt-3 pb-8 shadow-[0_-8px_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/60">
+              <LockIcon className="w-3.5 h-3.5 shrink-0" />
+              Locked
             </div>
-
-            <h2 className="mt-4 font-display text-lg md:text-xl tracking-[-0.01em]">
-              {project.name}
-            </h2>
-            <p className="mt-1.5 text-white/55 text-xs md:text-sm leading-snug">
-              {project.descriptor}
+            <p className="mt-1.5 text-[11px] leading-snug text-white/40">
+              Not ready to be shown yet.
             </p>
+          </div>
+        </motion.div>
 
-            <div className="mt-5 flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/35">
-              <span>
-                {project.status} &middot; {project.year}
-              </span>
-              <span
-                aria-hidden="true"
-                className={`transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
-              >
-                +
-              </span>
-            </div>
-          </motion.div>
+        {/* Front face — opaque, so the sheet reads as tucked inside it. */}
+        <motion.div
+          animate={reduce ? undefined : { rotateX: isOpen ? -14 : 0 }}
+          initial={false}
+          transition={{ duration: 0.55, ease: EASE }}
+          style={{ transformOrigin: "bottom center", transformPerspective: 900 }}
+          className="absolute inset-x-0 bottom-0 h-[122px] md:h-[132px] z-10"
+        >
+          <div className="relative w-full h-full">
+            {/* Solid backing so the sheet is hidden behind the face */}
+            <svg
+              viewBox="0 0 300 190"
+              preserveAspectRatio="none"
+              className="absolute inset-0 w-full h-full"
+              aria-hidden="true"
+            >
+              <path
+                d="M14 20 H118 q10 0 15 9 l8 14 q5 9 15 9 H286 q14 0 14 14 V176 q0 14 -14 14 H14 q-14 0 -14 -14 V34 q0 -14 14 -14 Z"
+                fill="#0b0b0b"
+              />
+            </svg>
+            <FolderFace gradientId={gradientId} />
+
+            <span className="absolute left-4 bottom-3 text-[10px] uppercase tracking-[0.2em] text-white/45">
+              LAB.{num}
+            </span>
+            <span
+              aria-hidden="true"
+              className={`absolute right-4 bottom-3 text-white/40 transition-transform duration-300 ${
+                isOpen ? "rotate-45" : ""
+              }`}
+            >
+              +
+            </span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Label */}
+      <div className="px-2 pt-4">
+        <h2 className="font-display text-base md:text-lg tracking-[-0.01em]">
+          {project.name}
+        </h2>
+        <p className="mt-1 text-white/50 text-xs md:text-[13px] leading-snug line-clamp-2">
+          {project.descriptor}
+        </p>
+
+        <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/35">
+          <span>
+            {project.status} &middot; {project.year}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <LockIcon className="w-3 h-3" />
+            Locked
+          </span>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   );
 }
