@@ -56,14 +56,23 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-20 md:mt-32 px-6 lg:px-12">
-        <h2 className="font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] uppercase text-center max-w-[1400px] mx-auto text-balance">
-          ©{SITE.name} Helping visionaries build brands that matter. Since 2016&ndash;tmrw.
-        </h2>
+      {/* Sign-off, composed rather than run together as one copyright sentence. */}
+      <div className="mt-16 md:mt-24 px-6 lg:px-12">
+        <div className="max-w-[1400px] mx-auto text-center">
+          <p className="font-display font-extrabold leading-[0.9] tracking-[-0.04em] text-[14vw] md:text-[10vw] lg:text-[8.5vw] uppercase">
+            {SITE.name}
+          </p>
+          <p className="mt-4 md:mt-6 font-display text-xl md:text-3xl lg:text-4xl leading-tight tracking-[-0.02em] text-white/75 text-balance max-w-[22ch] mx-auto">
+            Helping visionaries build brands that matter.
+          </p>
+          <p className="mt-6 md:mt-8 text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/40">
+            Since 2016 &mdash; Tmrw.
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-6 pb-8 md:pb-10 flex flex-col items-center text-center gap-2 md:flex-row md:items-center md:justify-between md:text-left text-xs text-white/40">
-        <p>All rights reserved. © {year}.</p>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-10 md:pt-14 pb-8 md:pb-10 flex flex-col items-center text-center gap-2 md:flex-row md:items-center md:justify-between md:text-left text-[11px] text-white/35">
+        <p>© {year} {SITE.name}. All rights reserved.</p>
         <p>{SITE.location}</p>
       </div>
     </footer>

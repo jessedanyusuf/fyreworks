@@ -4,7 +4,7 @@ import RevealLine from "@/components/motion/RevealLine";
 import ScrollReveal from "@/components/motion/ScrollReveal";
 import Parallax from "@/components/motion/Parallax";
 import ParallaxHero from "@/components/motion/ParallaxHero";
-import FeaturedWorkCarousel from "@/components/FeaturedWorkCarousel";
+import FeaturedWork from "@/components/FeaturedWork";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import ServicesList from "@/components/ServicesList";
 import { useSEO } from "@/lib/useSEO";
@@ -24,7 +24,7 @@ export default function Home() {
         <HeroBackdrop />
 
         <ParallaxHero>
-          <div className="relative px-6 lg:px-12 pb-14 md:pb-20">
+          <div className="relative px-6 lg:px-12 pb-12 md:pb-16">
             <div className="max-w-[1400px] mx-auto">
               {/* Sized so the longest rotating word still holds three lines.
                   RotatingWord reserves the width of its longest entry, so the
@@ -70,7 +70,7 @@ export default function Home() {
         </ParallaxHero>
       </section>
 
-      <section className="px-6 lg:px-12 py-16 md:py-28">
+      <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="font-display text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
             <RevealLine>Helping visionaries</RevealLine>
@@ -78,7 +78,7 @@ export default function Home() {
             <RevealLine delay={0.16}>that matter.</RevealLine>
           </h2>
 
-          <div className="mt-12 md:mt-20 grid md:grid-cols-12 gap-10">
+          <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-10">
             <Parallax distance={28} className="md:col-span-8 md:col-start-5">
               <div className="space-y-5 text-xl md:text-2xl lg:text-3xl leading-snug font-display tracking-[-0.01em]">
                 <ScrollReveal>
@@ -86,17 +86,17 @@ export default function Home() {
                 </ScrollReveal>
                 <ScrollReveal delay={0.08}>
                   <p className="text-white/70">
-                    Built on belief, not buzz. Built to burn long, not out.
+                    Built on belief, not buzz. Built to endure, not simply launch.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={0.16}>
                   <p>
-                    Built by people who make something from nothing, see everything in nothing,
-                    and by people who set the world on fire.
+                    Built by people who see what others miss, make something from nothing and
+                    carry ideas worth believing in.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={0.24}>
-                  <p className="text-white/70">By Visionaries.</p>
+                  <p className="text-white/70">Visionaries.</p>
                 </ScrollReveal>
                 <ScrollReveal delay={0.32}>
                   <p>That's who we're for.</p>
@@ -107,9 +107,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 lg:px-12 py-16 md:py-28">
+      <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
-          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-12 md:mb-20">
+          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
             <div className="md:col-span-3">
               <p className="text-xs uppercase tracking-[0.18em] text-white/40">What do we do?</p>
             </div>
@@ -130,13 +130,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 lg:px-12 py-16 md:py-28">
+      <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
-          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-12 md:mb-20">
+          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
             <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/40">
-                What we've built.
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white/40">Selected work</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
@@ -145,9 +143,9 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <FeaturedWorkCarousel />
+          <FeaturedWork />
 
-          <ScrollReveal className="mt-10 md:mt-14 flex justify-end">
+          <ScrollReveal className="mt-8 md:mt-10 flex justify-end">
             <Link
               href="/work"
               className="group inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/60 hover:text-white border-b border-white/30 hover:border-white pb-1 transition-colors"
@@ -164,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 lg:px-12 py-24 md:py-36">
+      <section className="px-6 lg:px-12 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto text-center">
           <h2 className="font-display font-bold text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
             <RevealLine>Let's create</RevealLine>

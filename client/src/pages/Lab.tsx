@@ -31,11 +31,8 @@ export default function Lab() {
 
       <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center justify-between mb-8 text-[10px] md:text-xs uppercase tracking-[0.22em] text-white/40">
+          <div className="mb-8 text-[10px] md:text-xs uppercase tracking-[0.22em] text-white/40">
             <span>The archive</span>
-            <span aria-hidden="true">
-              {String(LAB.length).padStart(2, "0")} folders &middot; all locked
-            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10 items-start">

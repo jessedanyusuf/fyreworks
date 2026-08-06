@@ -11,6 +11,8 @@ export interface WorkProject {
   slug: string;
   name: string;
   descriptor: string;
+  /** What the work was actually for. Shown on the large featured tile. */
+  statement?: string;
   year?: string;
   roles: string[];
   cover: string;
@@ -26,6 +28,8 @@ export const WORK: WorkProject[] = [
     slug: "lava",
     name: "LAVA",
     descriptor: "Energy drink brand built on instinct, not algorithm.",
+    statement:
+      "Building an energy drink brand with the energy, language and visual force to become part of youth culture.",
     roles: ["Brand identity", "Strategy", "Creative direction"],
     cover: lavaIce,
     featured: true,
@@ -34,6 +38,8 @@ export const WORK: WorkProject[] = [
     slug: "young",
     name: "YOUNG!",
     descriptor: "A storytelling platform documenting Africa's youth.",
+    statement:
+      "Giving Africa's rising generation a platform that treats their stories with the seriousness they deserve.",
     roles: ["Brand identity", "Content strategy", "Editorial direction"],
     cover: young,
     featured: true,
@@ -42,6 +48,8 @@ export const WORK: WorkProject[] = [
     slug: "shenation",
     name: "SheNation",
     descriptor: "Brand and digital presence for a women's empowerment platform.",
+    statement:
+      "Turning a women's empowerment platform into a brand women recognise as built for them, not at them.",
     roles: ["Brand identity", "Website", "Creative direction"],
     cover: shenation,
     featured: true,
@@ -50,6 +58,8 @@ export const WORK: WorkProject[] = [
     slug: "yanga",
     name: "YANGA",
     descriptor: "Social-first magazine and lifestyle brand for women.",
+    statement:
+      "Making an African women's magazine that reads like a cultural authority rather than a lifestyle feed.",
     roles: ["Brand identity", "Content", "Strategy"],
     cover: yanga,
     featured: true,

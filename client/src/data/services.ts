@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
   },
   {
     word: "Campaign",
-    outcome: "Don't make noise. Make a movement.",
+    outcome: "Arrive like you mean it.",
     description:
       "Creative direction for launches, repositions, and campaigns. Defined-moment engagements that move the brand forward.",
   },
@@ -42,8 +42,9 @@ export const SERVICES: Service[] = [
       "Events, environments, and the arc of how a brand feels over time. The compound of every touchpoint, directed.",
   },
   {
-    word: "Direction",
-    outcome: "A creative director on call.",
-    description: "Ongoing creative direction tied to the outcomes that matter.",
+    word: "Movement",
+    outcome: "Don't make noise. Make a movement.",
+    description:
+      "When a brand stops being something people buy and becomes something they join. Community, belief, and the momentum that carries an idea further than its founder.",
   },
 ];

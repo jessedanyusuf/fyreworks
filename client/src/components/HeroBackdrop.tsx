@@ -36,7 +36,8 @@ export default function HeroBackdrop() {
           <img
             src="/hero-gradient.webp"
             alt=""
-            fetchPriority="high"
+            // React 18 passes this through only in lowercase.
+            {...{ fetchpriority: "high" }}
             decoding="async"
             className="w-full h-full object-cover object-[78%_50%] md:object-center"
             onError={(e) => {
