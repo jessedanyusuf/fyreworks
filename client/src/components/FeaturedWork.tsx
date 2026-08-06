@@ -1,91 +1,96 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "wouter";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 import { FEATURED_WORK } from "@/data/work";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
 /**
- * Featured work: one large lead project with the rest beside it. Selecting a
- * smaller project promotes it to the lead slot, so the section carries several
- * projects without shrinking any of them into thumbnails.
+ * Featured work as a draggable rail. Category and title sit above each image,
+ * and slides are sized so the next one is always partly visible — the rail
+ * should read as continuing rather than ending at the viewport edge.
  */
 export default function FeaturedWork() {
-  const reduce = useReducedMotion();
-  const [leadIndex, setLeadIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    loop: false,
+  });
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
 
-  const lead = FEATURED_WORK[leadIndex];
-  const rest = FEATURED_WORK.filter((_, i) => i !== leadIndex);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      setCanPrev(emblaApi.canScrollPrev());
+      setCanNext(emblaApi.canScrollNext());
+    };
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi]);
 
   return (
-    <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-      {/* Lead */}
-      <div className="lg:col-span-8">
-        <Link href={`/work/${lead.slug}`} className="group block">
-          <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden bg-white/5">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={lead.slug}
-                src={lead.cover}
-                alt={lead.name}
-                initial={reduce ? false : { opacity: 0, scale: 1.04 }}
-                animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-                exit={reduce ? undefined : { opacity: 0 }}
-                transition={{ duration: 0.6, ease: EASE }}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </AnimatePresence>
+    <div>
+      <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+        <div className="flex -ml-6 lg:-ml-8">
+          {FEATURED_WORK.map((project) => (
             <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-          </div>
+              key={project.slug}
+              className="pl-6 lg:pl-8 flex-[0_0_78%] sm:flex-[0_0_46%] lg:flex-[0_0_31%]"
+            >
+              <Link href={`/work/${project.slug}`} className="group block">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/40">
+                  {project.roles[0]}
+                </p>
 
-          <div className="mt-6 grid md:grid-cols-12 gap-4 md:gap-8">
-            <h3 className="md:col-span-4 font-display text-2xl md:text-3xl lg:text-4xl tracking-[-0.02em] font-semibold">
-              {lead.name}
-            </h3>
-            <div className="md:col-span-8 space-y-4">
-              <p className="text-base md:text-lg lg:text-xl text-white/75 leading-relaxed max-w-[52ch]">
-                {lead.statement ?? lead.descriptor}
-              </p>
-              <p className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/40">
-                {lead.roles.join(" · ")}
-              </p>
+                <h3 className="mt-2 font-display text-xl lg:text-2xl tracking-[-0.015em] font-semibold transition-colors group-hover:text-white/70">
+                  {project.name}
+                </h3>
+
+                <div className="mt-5 aspect-[4/5] overflow-hidden bg-white/5">
+                  <img
+                    src={project.cover}
+                    alt={project.name}
+                    loading="lazy"
+                    draggable={false}
+                    className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] select-none"
+                  />
+                </div>
+              </Link>
             </div>
-          </div>
-        </Link>
+          ))}
+        </div>
       </div>
 
-      {/* The rest — click to promote into the lead slot */}
-      <div className="lg:col-span-4 grid grid-cols-3 lg:grid-cols-1 gap-4 lg:gap-5">
-        {rest.map((project) => {
-          const targetIndex = FEATURED_WORK.findIndex((p) => p.slug === project.slug);
-          return (
-            <button
-              key={project.slug}
-              type="button"
-              onClick={() => setLeadIndex(targetIndex)}
-              aria-label={`Show ${project.name}`}
-              className="group text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
-            >
-              <div className="relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-white/5">
-                <img
-                  src={project.cover}
-                  alt={project.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-70 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-[1.03]"
-                />
-              </div>
-              <p className="mt-2.5 font-display text-sm md:text-base tracking-[-0.01em] text-white/70 group-hover:text-white transition-colors">
-                {project.name}
-              </p>
-              <p className="hidden lg:block mt-0.5 text-[10px] uppercase tracking-[0.18em] text-white/35">
-                {project.roles[0]}
-              </p>
-            </button>
-          );
-        })}
+      <div className="mt-8 flex items-center justify-between gap-6">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Drag &rarr;</span>
+
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={scrollPrev}
+            disabled={!canPrev}
+            aria-label="Previous projects"
+            className="w-10 h-10 border border-white/20 flex items-center justify-center transition-colors enabled:hover:border-white disabled:opacity-30 disabled:cursor-default"
+          >
+            <span aria-hidden="true">&larr;</span>
+          </button>
+          <button
+            type="button"
+            onClick={scrollNext}
+            disabled={!canNext}
+            aria-label="Next projects"
+            className="w-10 h-10 border border-white/20 flex items-center justify-center transition-colors enabled:hover:border-white disabled:opacity-30 disabled:cursor-default"
+          >
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
       </div>
     </div>
   );

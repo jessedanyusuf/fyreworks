@@ -134,7 +134,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
             <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/40">Selected work</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white/40">Featured work</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
@@ -143,22 +143,23 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <FeaturedWork />
-
-          <ScrollReveal className="mt-8 md:mt-10 flex justify-end">
+          {/* Rule with the portfolio link riding on it, as in the reference. */}
+          <ScrollReveal className="flex items-center justify-end gap-6 border-t border-white/20 pt-5 mb-10 md:mb-12">
             <Link
               href="/work"
-              className="group inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-white/60 hover:text-white border-b border-white/30 hover:border-white pb-1 transition-colors"
+              className="group inline-flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
             >
-              See the archive
+              Portfolio
               <span
                 aria-hidden="true"
                 className="transition-transform group-hover:translate-x-1"
               >
-                &rarr;
+                &#10230;
               </span>
             </Link>
           </ScrollReveal>
+
+          <FeaturedWork />
         </div>
       </section>
 
