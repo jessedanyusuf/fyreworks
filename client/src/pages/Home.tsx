@@ -46,8 +46,7 @@ export default function Home() {
                 <div className="md:col-span-5 md:col-start-8 space-y-6">
                   <ScrollReveal delay={0.4}>
                     <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-[42ch]">
-                      We turn ideas into brands people believe in &mdash; through taste,
-                      judgement, and the discipline to decide what a brand should refuse to be.
+                      We help visionaries shape bold ideas into brands with meaning and movement.
                     </p>
                   </ScrollReveal>
                   <ScrollReveal delay={0.48}>
@@ -169,7 +168,7 @@ export default function Home() {
           <h2 className="font-display font-bold text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
             <RevealLine>Let's create</RevealLine>
             <RevealLine delay={0.08}>
-              <SlotWord words={["something", "impact", "stories", "future"]} />
+              <SlotWord words={["something", "impact", "stories", "the future"]} />
             </RevealLine>
             <RevealLine delay={0.16}>together.</RevealLine>
           </h2>
