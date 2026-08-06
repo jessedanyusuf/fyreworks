@@ -111,7 +111,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
             <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/40">What do we do?</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white">What do we do?</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
@@ -134,7 +134,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
             <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/40">Featured work</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white">Featured work</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">

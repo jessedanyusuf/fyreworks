@@ -42,7 +42,7 @@ export default function ServicesList() {
           <li key={s.word}>
             <button
               type="button"
-              className="w-full text-left py-7 md:py-10 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
+              className="w-full text-left py-3 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
               aria-expanded={isActive}
               aria-controls={`service-panel-${i}`}
               {...handlers}
@@ -53,27 +53,39 @@ export default function ServicesList() {
                   isActive ? "text-white/70" : "text-white/35"
                 }`}
               >
-                /{String(i + 1).padStart(2, "0")}
+                {String(i + 1).padStart(2, "0")}
               </span>
 
               {/* Capability */}
               <h3
-                className={`col-span-10 md:col-span-6 font-display font-normal leading-[0.98] tracking-[-0.02em] text-[10vw] md:text-[5.5vw] lg:text-[4vw] transition-colors duration-500 ease-out ${
+                className={`col-span-10 md:col-span-6 font-display font-medium leading-[0.98] tracking-[-0.02em] text-[10vw] md:text-[5.5vw] lg:text-[4vw] transition-colors duration-500 ease-out ${
                   isActive ? "text-white" : "text-white/80 group-hover:text-white"
                 }`}
               >
                 {s.word}
               </h3>
 
-              {/* Reserved column — fills on hover */}
-              <div className="col-span-12 md:col-span-5 md:pt-3 min-h-0">
+              {/* Reserved column — fills on hover.
+                  On desktop this contributes no height: the panel mounting must
+                  not grow the row, or every service below it shifts down and the
+                  list walks away from the cursor. It paints into the row's own
+                  bottom padding instead. Mobile taps to toggle, where expanding
+                  the row in flow is the expected behaviour. */}
+              <div className="col-span-12 md:col-span-5 md:pt-3 md:h-0 md:pointer-events-none">
                 <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.div
                       id={`service-panel-${i}`}
                       initial={reduce ? false : { opacity: 0, y: 8 }}
                       animate={reduce ? undefined : { opacity: 1, y: 0 }}
-                      exit={reduce ? undefined : { opacity: 0, y: 4 }}
+                      exit={
+                        reduce
+                          ? undefined
+                          : // Leaves faster than it arrives. Rows are tighter than
+                            // the panels are tall, so a slow exit leaves the old
+                            // panel sitting under the new one as you sweep the list.
+                            { opacity: 0, y: 4, transition: { duration: 0.18, ease: EASE } }
+                      }
                       transition={{ duration: 0.4, ease: EASE }}
                       className="pt-4 md:pt-0 space-y-3"
                     >
