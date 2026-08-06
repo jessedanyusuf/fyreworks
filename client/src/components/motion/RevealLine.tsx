@@ -14,9 +14,17 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const DURATION = 0.9;
 
 const VARIANTS = {
-  hidden: { y: "110%" },
+  // Must clear MASK_PAD below, or the line is already peeking before it rises.
+  hidden: { y: "125%" },
   visible: { y: "0%" },
 };
+
+/**
+ * Depth of the mask below the line box. Display type here runs at leading ~1.04,
+ * so descenders fall roughly 0.2em past the box — this has to exceed that or
+ * glyphs like the g in "something" get their tails shaved off.
+ */
+const MASK_PAD = "pb-[0.24em] -mb-[0.24em]";
 
 /**
  * A line of display type that rises out of a mask.
@@ -53,7 +61,7 @@ export default function RevealLine({
   return (
     <motion.span
       {...outerProps}
-      className={`block overflow-hidden pb-[0.14em] -mb-[0.14em] ${className ?? ""}`}
+      className={`block overflow-hidden ${MASK_PAD} ${className ?? ""}`}
     >
       <motion.span
         className="block will-change-transform"

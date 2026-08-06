@@ -49,7 +49,7 @@ export default function ServicesList() {
             >
               {/* Index */}
               <span
-                className={`col-span-2 md:col-span-1 pt-2 md:pt-4 italic text-sm md:text-base transition-colors duration-500 ${
+                className={`col-span-2 md:col-span-1 pt-2 md:pt-4 text-sm md:text-base transition-colors duration-500 ${
                   isActive ? "text-white/70" : "text-white/35"
                 }`}
               >

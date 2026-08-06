@@ -114,7 +114,7 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.18em] text-white/40">What do we do?</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
                 Creative direction.
               </h2>
               <p className="text-xl md:text-2xl leading-snug text-white/70 max-w-[42ch]">
@@ -137,7 +137,7 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.18em] text-white/40">Featured work</p>
             </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-[-0.015em]">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
                 Transforming bold ideas into brands people believe in.
               </h2>
             </div>

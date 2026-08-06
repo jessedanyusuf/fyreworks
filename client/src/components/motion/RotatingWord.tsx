@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { HERO_WORDS } from "@/data/site";
 
@@ -24,11 +24,6 @@ export default function RotatingWord({
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState(words[0]);
   const [phase, setPhase] = useState<Phase>("hold");
-
-  const longestWord = useMemo(
-    () => [...words].sort((a, b) => b.length - a.length)[0],
-    [words],
-  );
 
   useEffect(() => {
     if (reduceMotion) return;
