@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import RotatingWord from "@/components/motion/RotatingWord";
 import RevealLine from "@/components/motion/RevealLine";
+import SlotWord from "@/components/motion/SlotWord";
 import ScrollReveal from "@/components/motion/ScrollReveal";
 import Parallax from "@/components/motion/Parallax";
 import ParallaxHero from "@/components/motion/ParallaxHero";
@@ -168,7 +169,7 @@ export default function Home() {
           <h2 className="font-display font-bold text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em]">
             <RevealLine>Let's create</RevealLine>
             <RevealLine delay={0.08}>
-              <RotatingWord words={["something", "impact", "stories", "future"]} trailing="" />
+              <SlotWord words={["something", "impact", "stories", "future"]} />
             </RevealLine>
             <RevealLine delay={0.16}>together.</RevealLine>
           </h2>
