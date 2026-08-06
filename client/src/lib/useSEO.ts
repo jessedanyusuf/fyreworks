@@ -44,10 +44,10 @@ export function useSEO({ title, description, path = "/", ogImage, ogType = "webs
     setMeta("property", "og:url", fullUrl);
     setMeta("property", "og:type", ogType);
 
-    setMeta("property", "twitter:title", title);
-    setMeta("property", "twitter:description", description);
-    setMeta("property", "twitter:image", image);
-    setMeta("property", "twitter:url", fullUrl);
+    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:description", description);
+    setMeta("name", "twitter:image", image);
+    setMeta("name", "twitter:url", fullUrl);
 
     setCanonical(fullUrl);
   }, [title, description, path, ogImage, ogType]);

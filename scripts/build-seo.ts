@@ -46,7 +46,7 @@ const staticRoutes: RouteMeta[] = [
     path: "/lab",
     title: "Lab — Fyreworks",
     description:
-      "Work without a client. Concept brands, speculative identities, ideas that wouldn't leave us alone.",
+      "Creative experiments from Fyreworks — the work we make for ourselves. Concept brands, speculative identities, and ideas still taking shape.",
   },
   {
     path: "/journal",
@@ -136,16 +136,16 @@ function injectMeta(html: string, meta: RouteMeta): string {
 
   // twitter:title / description / url
   out = out.replace(
-    /<meta\s+property="twitter:title"[^>]*>/,
-    `<meta property="twitter:title" content="${title}">`
+    /<meta\s+name="twitter:title"[^>]*>/,
+    `<meta name="twitter:title" content="${title}">`
   );
   out = out.replace(
-    /<meta\s+property="twitter:description"[^>]*>/,
-    `<meta property="twitter:description" content="${description}">`
+    /<meta\s+name="twitter:description"[^>]*>/,
+    `<meta name="twitter:description" content="${description}">`
   );
   out = out.replace(
-    /<meta\s+property="twitter:url"[^>]*>/,
-    `<meta property="twitter:url" content="${url}">`
+    /<meta\s+name="twitter:url"[^>]*>/,
+    `<meta name="twitter:url" content="${url}">`
   );
 
   // canonical link (add if not present)
@@ -158,6 +158,18 @@ function injectMeta(html: string, meta: RouteMeta): string {
     out = out.replace(
       /<\/head>/,
       `  <link rel="canonical" href="${url}">\n  </head>`
+    );
+  }
+
+  // article:* (article only). LinkedIn reads these to render a post as an
+  // article rather than a plain link, and they are what surfaces a byline and
+  // date in the card.
+  if (ogType === "article" && meta.publishedISO) {
+    out = out.replace(
+      /<\/head>/,
+      `  <meta property="article:published_time" content="${meta.publishedISO}">\n` +
+        `  <meta property="article:author" content="Jesse Dan-Yusuf">\n` +
+        `  <meta property="article:publisher" content="${BASE_URL}">\n  </head>`
     );
   }
 

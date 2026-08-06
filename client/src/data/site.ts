@@ -4,7 +4,7 @@ export const SITE = {
   email: "hello@fyreworks.co",
   location: "From Abuja to the Ends of Earth.",
   baseUrl: "https://www.fyreworks.co",
-  defaultOgImage: "/assets/fyreworks-logo-preview.png",
+  defaultOgImage: "/assets/fyreworks-og.png",
 };
 
 export const NAV_ITEMS = [
