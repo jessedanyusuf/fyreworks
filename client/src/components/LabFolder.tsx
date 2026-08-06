@@ -80,7 +80,12 @@ export default function LabFolder({ project, isOpen, onToggle }: LabFolderProps)
           sheet has somewhere to emerge into. */}
       <div className="relative h-[168px] md:h-[182px] overflow-hidden rounded-lg">
         <motion.div
-          animate={reduce ? undefined : { y: isOpen ? 0 : 34 }}
+          // Tuck depth is set by the folder's right shoulder, not its box: the
+          // tab is on the left, so the path's right edge starts ~23% further
+          // down and leaves a band the face never covers. Clearing only the box
+          // let the sheet's "Locked" show through there as a stray "ED". Also
+          // deep enough for the two-line sheet the narrowest four-up cards wrap to.
+          animate={reduce ? undefined : { y: isOpen ? 0 : 78 }}
           initial={false}
           transition={{ duration: 0.55, ease: EASE }}
           className="absolute left-4 right-4 bottom-[74px] md:bottom-[84px] z-0"
@@ -143,7 +148,9 @@ export default function LabFolder({ project, isOpen, onToggle }: LabFolderProps)
           {project.descriptor}
         </p>
 
-        <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/35">
+        {/* Stacks two-up on mobile: side by side, the status and the lock
+            together overrun the half-width card and spill past its edge. */}
+        <div className="mt-3 pt-3 border-t border-white/10 flex flex-col items-start gap-1.5 md:flex-row md:items-center md:justify-between text-[10px] uppercase tracking-[0.18em] text-white/35">
           <span>
             {project.status} &middot; {project.year}
           </span>

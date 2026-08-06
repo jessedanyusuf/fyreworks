@@ -8,7 +8,7 @@ export default function Lab() {
   useSEO({
     title: "Lab — Fyreworks",
     description:
-      "Work without a client. Concept brands, speculative identities, ideas that wouldn't leave us alone.",
+      "Creative experiments from Fyreworks — the work we make for ourselves. Concept brands, speculative identities, and ideas still taking shape.",
     path: "/lab",
   });
 
@@ -35,7 +35,7 @@ export default function Lab() {
             <span>The archive</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10 items-start">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-7 md:gap-x-8 md:gap-y-10 items-start">
             {LAB.map((project, i) => (
               <ScrollReveal key={project.slug} delay={Math.min(i, 8) * 0.04}>
                 <LabFolder
