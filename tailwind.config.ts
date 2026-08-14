@@ -87,11 +87,24 @@ export default {
           "0%, 50%": { opacity: "1" },
           "50.01%, 100%": { opacity: "0" },
         },
+        // Light trails travelling along the footer's horizon. The distance is
+        // one full period of the trail gradient measured along x — its 48px
+        // period divided by sin(8deg), the tilt — so the loop loses its seam.
+        "ember-drift": {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-345px, 0, 0)" },
+        },
+        "ember-breathe": {
+          "0%, 100%": { opacity: "0.72" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         blink: "blink 1s step-end infinite",
+        "ember-drift": "ember-drift 14s linear infinite",
+        "ember-breathe": "ember-breathe 11s ease-in-out infinite",
       },
     },
   },

@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { SOCIAL_LINKS, SITE } from "@/data/site";
 import FyreworksMark from "@/components/FyreworksMark";
+import FooterCosmos from "@/components/FooterCosmos";
 
 function EnvelopeIcon() {
   return (
@@ -24,8 +25,10 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 md:mt-40 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 md:pt-24">
+    <footer className="relative mt-24 md:mt-40 overflow-hidden">
+      <FooterCosmos />
+
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-8 md:gap-10">
           <Link href="/" aria-label="Fyreworks home" className="text-white/90 hover:text-white transition-colors">
             <FyreworksMark className="h-7 w-7 md:h-8 md:w-8" />
@@ -56,13 +59,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-20 md:mt-32 px-6 lg:px-12">
+      <div className="relative mt-20 md:mt-32 px-6 lg:px-12">
         <h2 className="font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[8vw] md:text-[5.5vw] lg:text-[4.5vw] uppercase text-center max-w-[1400px] mx-auto text-balance">
           ©{SITE.name} Helping visionaries build brands that matter. Since 2016&ndash;tmrw.
         </h2>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-6 pb-8 md:pb-10 flex flex-col items-center text-center gap-2 md:flex-row md:items-center md:justify-between md:text-left text-xs text-white/40">
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 pt-6 pb-8 md:pb-10 flex flex-col items-center text-center gap-2 md:flex-row md:items-center md:justify-between md:text-left text-xs text-white/40">
         <p>All rights reserved. © {year}.</p>
         <p>{SITE.location}</p>
       </div>
