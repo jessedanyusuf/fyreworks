@@ -26,15 +26,17 @@ export default function Home() {
               {/* Sized so the longest rotating word still holds three lines.
                   RotatingWord reserves the width of its longest entry, so the
                   third line is always at its widest. */}
-              <h1 className="font-display text-[7.5vw] md:text-[7vw] lg:text-[6.5vw] leading-[0.92] tracking-[-0.03em] font-bold uppercase">
+              <h1 className="font-display text-[7.5vw] md:text-[7vw] lg:text-[6.5vw] leading-[0.92] tracking-[-0.03em] font-bold">
                 <RevealLine trigger="load" delay={0.05}>
-                  We are the
+                  We Are the
                 </RevealLine>
                 <RevealLine trigger="load" delay={0.13}>
-                  creative studio
+                  Creative Studio
                 </RevealLine>
                 <RevealLine trigger="load" delay={0.21}>
-                  for <RotatingWord />
+                  {/* capitalize rather than editing HERO_WORDS: the cycle types
+                      a character at a time, and the rule still fires mid-word. */}
+                  for <span className="capitalize"><RotatingWord /></span>
                 </RevealLine>
               </h1>
 
