@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { NAV_ITEMS, SOCIAL_LINKS, SITE } from "@/data/site";
+import FyreworksMark from "@/components/FyreworksMark";
 
 function ArrowOut() {
   return (
@@ -15,6 +16,14 @@ export default function Footer() {
   return (
     <footer className="mt-24 md:mt-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 md:pt-24">
+        <Link
+          href="/"
+          aria-label="Fyreworks home"
+          className="inline-block mb-12 md:mb-16 text-white/90 hover:text-white transition-colors"
+        >
+          <FyreworksMark className="h-7 w-7 md:h-8 md:w-8" />
+        </Link>
+
         <div className="grid gap-12 md:gap-10 md:grid-cols-12">
           {/* Navigation carries the left column's weight, set large — it is the
               structural counterpart to the reference's grid of office codes,

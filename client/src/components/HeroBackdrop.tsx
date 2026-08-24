@@ -32,9 +32,14 @@ export default function HeroBackdrop({
     // page's critical path — it is the single heaviest asset on the site. Wait
     // for load, then for idle, and only then attach the source. The poster is
     // frame 0, so until it arrives the hero looks finished rather than pending.
+    // Save-Data is an explicit request not to spend the user's bytes, and 2G
+    // genuinely cannot carry this. 3G is deliberately NOT excluded: Chrome
+    // derives effectiveType from rolling RTT estimates and reports "3g" on
+    // ordinary broadband, office wifi and VPNs constantly, so gating on it hid
+    // the hero from most people.
     const conn = (navigator as any).connection;
     if (conn?.saveData) return;
-    if (/^([23]g|slow-2g)$/.test(conn?.effectiveType ?? "")) return;
+    if (/^(2g|slow-2g)$/.test(conn?.effectiveType ?? "")) return;
 
     const start = () => {
       // The timeout matters: the page animates continuously (the hero word
