@@ -2,7 +2,8 @@ export const SITE = {
   name: "Fyreworks",
   tagline: "A creative studio for visionaries.",
   email: "hello@fyreworks.co",
-  location: "From Abuja to the Ends of Earth.",
+  /** Abuja. Coordinates rather than a place name — see the footer and Contact. */
+  location: "9.0579° N, 7.4951° E",
   baseUrl: "https://www.fyreworks.co",
   defaultOgImage: "/assets/fyreworks-og.png",
 };
