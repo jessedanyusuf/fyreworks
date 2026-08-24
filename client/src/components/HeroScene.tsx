@@ -67,11 +67,15 @@ export default function HeroScene({ children }: { children: ReactNode }) {
         >
           <div className="max-w-[1400px] mx-auto">
             <h2 className="font-display text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
-              Helping visionaries
+              {/* Broken on phrase, not by accident: "bold ideas" and the
+                  payoff "brands people believe in" each stay whole, and the
+                  lines build 19/20/25 characters instead of the 19/15/30
+                  stagger that left a short middle line under a long last one. */}
+              We help visionaries
               <br />
-              build brands
+              turn bold ideas into
               <br />
-              that matter.
+              brands people believe in.
             </h2>
           </div>
         </div>

@@ -43,11 +43,6 @@ export default function Home() {
               <div className="mt-10 md:mt-12 grid md:grid-cols-12 gap-8">
                 <div className="md:col-span-5 md:col-start-8 space-y-6">
                   <ScrollReveal delay={0.4}>
-                    <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-[42ch]">
-                      We help visionaries shape bold ideas into brands with meaning and movement.
-                    </p>
-                  </ScrollReveal>
-                  <ScrollReveal delay={0.48}>
                     <Link
                       href="/contact"
                       className="group inline-flex items-center gap-3 rounded-full border border-white/25 pl-6 pr-2 py-2 text-sm hover:border-white/60 hover:bg-white/5 transition-colors"
