@@ -5,6 +5,15 @@ import { SERVICES } from "@/data/services";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
+ * Height of each row left showing once the next one stacks over it. Measured,
+ * not guessed: the word's ink runs to 83px inside the row, so anything under 84
+ * slices through the letterforms — 64 cut "Identity" clean through its middle.
+ */
+const PEEK = 88;
+/** Where the stack starts, clear of the fixed header. */
+const STACK_TOP = "5.5rem";
+
+/**
  * Capabilities as a numbered index: rule, index number, the word set large and
  * light, and a right-hand column that fills in on hover (tap on touch).
  * The column is always present in the grid so revealing it never shifts the row.
@@ -24,7 +33,17 @@ export default function ServicesList() {
   }, []);
 
   return (
-    <ul className="w-full" role="list">
+    /* Rows stack rather than scroll past: each sticks a little lower than the
+       one before, so the list piles up under itself as you scroll instead of
+       reading as a static column.
+       PEEK is what stays visible of each row once the next covers it — set just
+       above the cap height of the word, so every stacked service still reads.
+       Only from md up: seven sticky rows would eat a phone viewport. */
+    <ul
+      className="w-full"
+      role="list"
+      style={{ ["--stack-top" as string]: STACK_TOP }}
+    >
       {SERVICES.map((s, i) => {
         const isActive = active === i;
         const handlers = canHover
@@ -39,10 +58,15 @@ export default function ServicesList() {
             };
 
         return (
-          <li key={s.word}>
+          <li
+            key={s.word}
+            /* Opaque, or the row underneath shows straight through the stack. */
+            className="md:sticky bg-black"
+            style={{ top: `calc(var(--stack-top) + ${i * PEEK}px)` }}
+          >
             <button
               type="button"
-              className="w-full text-left py-3 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
+              className="w-full text-left pt-5 pb-8 md:pt-6 md:pb-16 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start border-t border-white/[0.14] focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
               aria-expanded={isActive}
               aria-controls={`service-panel-${i}`}
               {...handlers}
