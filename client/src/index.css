@@ -77,3 +77,47 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Moon cursor.
+   Hotspot is the centre of the disc: a moon has no point, so anchoring at a
+   corner would put the click target off the thing you are aiming with.
+   The disc carries a dark rim because the site runs black but the hero is
+   bright — an unstroked moon disappears over the light shaft and the spacesuit.
+   Left off touch pointers, which have no cursor to replace, and off text fields,
+   where the I-beam is doing real work. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor:
+      image-set(
+        url("/assets/cursor-moon.png") 1x,
+        url("/assets/cursor-moon@2x.png") 2x
+      )
+      16 16,
+      url("/assets/cursor-moon.png") 16 16,
+      auto;
+  }
+
+  a,
+  button,
+  summary,
+  label,
+  [role="button"],
+  [role="link"],
+  input[type="submit"],
+  input[type="button"] {
+    cursor:
+      image-set(
+        url("/assets/cursor-moon-go.png") 1x,
+        url("/assets/cursor-moon-go@2x.png") 2x
+      )
+      16 16,
+      url("/assets/cursor-moon-go.png") 16 16,
+      pointer;
+  }
+
+  input:not([type="submit"]):not([type="button"]),
+  textarea,
+  select {
+    cursor: auto;
+  }
+}
