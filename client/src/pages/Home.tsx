@@ -65,15 +65,23 @@ export default function Home() {
 
       <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
-          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
-            <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white">What do we do?</p>
-            </div>
-            <div className="md:col-span-8 md:col-start-5 space-y-6">
+          {/* The question is set large and pushed right; the answer follows
+              underneath on the left, smaller — so the section reads as a
+              question answered rather than a label beside a heading.
+              The question holds the section-heading size shared with Featured
+              work, rather than going bigger: above it sits the hero statement,
+              and overtaking that would invert the page's type ramp. */}
+          <ScrollReveal className="grid md:grid-cols-12 gap-x-10 gap-y-10 md:gap-y-16 mb-10 md:mb-14">
+            <div className="md:col-span-8 md:col-start-5">
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
-                Creative direction.
+                What do we do?
               </h2>
-              <p className="text-xl md:text-2xl leading-snug text-white/70 max-w-[42ch]">
+            </div>
+            <div className="md:col-span-6 space-y-4">
+              <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.05] tracking-[-0.02em]">
+                Creative direction.
+              </h3>
+              <p className="text-lg md:text-xl leading-snug text-white/70 max-w-[42ch]">
                 The art &amp; practice of deciding what a brand should feel like, stand for, and
                 refuse to be.
               </p>
