@@ -3,10 +3,9 @@ import RotatingWord from "@/components/motion/RotatingWord";
 import RevealLine from "@/components/motion/RevealLine";
 import SlotWord from "@/components/motion/SlotWord";
 import ScrollReveal from "@/components/motion/ScrollReveal";
-import Parallax from "@/components/motion/Parallax";
 import ParallaxHero from "@/components/motion/ParallaxHero";
 import FeaturedWork from "@/components/FeaturedWork";
-import HeroBackdrop from "@/components/HeroBackdrop";
+import HeroScene from "@/components/HeroScene";
 import ServicesList from "@/components/ServicesList";
 import { useSEO } from "@/lib/useSEO";
 
@@ -20,10 +19,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20">
-        {/* Full-bleed backdrop. Sits behind everything; drifts slowly on scroll. */}
-        <HeroBackdrop />
-
+      <HeroScene>
         <ParallaxHero>
           <div className="relative px-6 lg:px-12 pb-12 md:pb-16">
             <div className="max-w-[1400px] mx-auto">
@@ -68,44 +64,7 @@ export default function Home() {
             </div>
           </div>
         </ParallaxHero>
-      </section>
-
-      <section className="px-6 lg:px-12 py-12 md:py-20">
-        <div className="max-w-[1400px] mx-auto">
-          <h2 className="font-display text-[6vw] md:text-[5.5vw] lg:text-[4.5vw] leading-[1.04] tracking-[-0.02em] font-bold">
-            <RevealLine>Helping visionaries</RevealLine>
-            <RevealLine delay={0.08}>build brands</RevealLine>
-            <RevealLine delay={0.16}>that matter.</RevealLine>
-          </h2>
-
-          <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-10">
-            <Parallax distance={28} className="md:col-span-8 md:col-start-5">
-              <div className="space-y-5 text-xl md:text-2xl lg:text-3xl leading-snug font-display tracking-[-0.01em]">
-                <ScrollReveal>
-                  <p>The world doesn't need more brands. It needs better ones.</p>
-                </ScrollReveal>
-                <ScrollReveal delay={0.08}>
-                  <p className="text-white/70">
-                    Built on belief, not buzz. Built to endure, not simply launch.
-                  </p>
-                </ScrollReveal>
-                <ScrollReveal delay={0.16}>
-                  <p>
-                    Built by people who see what others miss, make something from nothing and
-                    carry ideas worth believing in.
-                  </p>
-                </ScrollReveal>
-                <ScrollReveal delay={0.24}>
-                  <p className="text-white/70">Visionaries.</p>
-                </ScrollReveal>
-                <ScrollReveal delay={0.32}>
-                  <p>That's who we're for.</p>
-                </ScrollReveal>
-              </div>
-            </Parallax>
-          </div>
-        </div>
-      </section>
+      </HeroScene>
 
       <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
