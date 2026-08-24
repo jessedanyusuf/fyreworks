@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { HERO_WORDS } from "@/data/site";
 
-const TYPE_MS = 70;
-const DELETE_MS = 40;
-const HOLD_MS = 1800;
-const ANCHOR_HOLD_MS = 3400;
-const EMPTY_PAUSE_MS = 280;
+const TYPE_MS = 45;
+const DELETE_MS = 24;
+const HOLD_MS = 1100;
+const ANCHOR_HOLD_MS = 2200;
+const EMPTY_PAUSE_MS = 170;
 
 type Phase = "hold" | "deleting" | "pause" | "typing";
 
