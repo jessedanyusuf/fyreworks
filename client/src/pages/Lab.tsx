@@ -19,7 +19,7 @@ export default function Lab() {
     <>
       <section className="px-6 lg:px-12 pt-20 md:pt-32 pb-12 md:pb-16">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-xs uppercase tracking-[0.18em] text-white/40 mb-8">Lab</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-white/40 mb-8">Welcome to the Lab</p>
           <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-[-0.02em] max-w-[18ch] text-balance">
             Creative Experiments We're Working On
           </h1>
