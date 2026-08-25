@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { LabProject } from "@/data/lab";
 
 interface LabFolderProps {
@@ -144,20 +144,37 @@ export default function LabFolder({ project, isOpen, onToggle }: LabFolderProps)
         <h2 className="font-display text-base md:text-lg tracking-[-0.01em]">
           {project.name}
         </h2>
-        <p className="mt-1 text-white/50 text-xs md:text-[13px] leading-snug line-clamp-2">
-          {project.descriptor}
-        </p>
+        {/* Held back until the folder is opened. Shown always it had to be
+            clamped to two lines, which cut every descriptor mid-phrase on a
+            half-width card — and it made each card tall enough that the grid
+            became a long scroll of mostly-truncated text. The margin sits on
+            the inner element so height can collapse to a true zero. */}
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={reduce ? false : { height: 0, opacity: 0 }}
+              animate={reduce ? undefined : { height: "auto", opacity: 1 }}
+              exit={reduce ? undefined : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.34, ease: EASE }}
+              className="overflow-hidden"
+            >
+              <p className="mt-1 text-white/50 text-xs md:text-[13px] leading-snug">
+                {project.descriptor}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        {/* Stacks two-up on mobile: side by side, the status and the lock
-            together overrun the half-width card and spill past its edge. */}
-        <div className="mt-3 pt-3 border-t border-white/10 flex flex-col items-start gap-1.5 md:flex-row md:items-center md:justify-between text-[10px] uppercase tracking-[0.18em] text-white/35">
-          <span>
+        {/* Back on one row: it had to stack when "Locked" sat beside the status
+            and the pair overran a half-width card. With the word gone the icon
+            costs almost nothing and they fit side by side again. */}
+        <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.05em] md:tracking-[0.18em] text-white/35">
+          <span className="whitespace-nowrap">
             {project.status} &middot; {project.year}
           </span>
-          <span className="inline-flex items-center gap-1.5">
-            <LockIcon className="w-3 h-3" />
-            Locked
-          </span>
+          {/* Icon only — the word is redundant beside it, and the button's
+              aria-label already announces the locked state. */}
+          <LockIcon className="w-3.5 h-3.5 shrink-0" />
         </div>
       </div>
     </button>

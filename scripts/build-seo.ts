@@ -2,12 +2,12 @@ import { readFile, writeFile, mkdir, cp, access, readdir } from "node:fs/promise
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { JOURNAL_MANIFEST } from "../client/src/data/journal-manifest.ts";
+import { SITE, SOCIAL_LINKS } from "../client/src/data/site.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist", "public");
-const BASE_URL = "https://www.fyreworks.co";
-const DEFAULT_OG = `${BASE_URL}/assets/fyreworks-logo-preview.png`;
+const BASE_URL = SITE.baseUrl;
 
 interface RouteMeta {
   path: string;
@@ -23,7 +23,29 @@ const staticRoutes: RouteMeta[] = [
     path: "/",
     title: "Fyreworks — The creative studio for visionaries",
     description:
-      "We turn ideas into brands people believe in. Creative direction for founders, builders, and culture-makers building what the world doesn't have yet.",
+      "We help visionaries turn bold ideas into brands people believe in. Creative direction for founders, builders and culture-makers.",
+    // Identity for the whole site, not just this page: it is what ties the
+    // name, the mark, the founder and the social accounts together for search,
+    // and there was no organisation-level schema anywhere before this.
+    // sameAs is read straight from SOCIAL_LINKS so the two cannot drift.
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE.name,
+      url: BASE_URL,
+      logo: `${BASE_URL}/android-chrome-512x512.png`,
+      image: `${BASE_URL}${SITE.defaultOgImage}`,
+      description:
+        "Creative direction for founders, builders and culture-makers. Fyreworks helps visionaries turn bold ideas into brands people believe in.",
+      email: SITE.email,
+      founder: { "@type": "Person", name: "Jesse Dan-Yusuf" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Abuja",
+        addressCountry: "NG",
+      },
+      sameAs: SOCIAL_LINKS.map((s) => s.href),
+    },
   },
   {
     path: "/studio",
@@ -173,7 +195,7 @@ function injectMeta(html: string, meta: RouteMeta): string {
     );
   }
 
-  // JSON-LD (article only)
+  // JSON-LD: Article on journal posts, Organization on the homepage.
   if (meta.jsonLd) {
     const ldJson = JSON.stringify(meta.jsonLd);
     out = out.replace(

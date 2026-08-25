@@ -35,7 +35,7 @@ export default function Lab() {
             <span>The archive</span>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-7 md:gap-x-8 md:gap-y-10 items-start">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-7 md:gap-x-8 md:gap-y-10">
             {LAB.map((project, i) => (
               <ScrollReveal key={project.slug} delay={Math.min(i, 8) * 0.04}>
                 <LabFolder

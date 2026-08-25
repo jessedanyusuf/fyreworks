@@ -13,7 +13,7 @@ export default function Home() {
   useSEO({
     title: "Fyreworks — The creative studio for visionaries",
     description:
-      "We turn ideas into brands people believe in. Creative direction for founders, builders, and culture-makers building what the world doesn't have yet.",
+      "We help visionaries turn bold ideas into brands people believe in. Creative direction for founders, builders and culture-makers.",
     path: "/",
   });
 
@@ -67,13 +67,10 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           {/* The question is set large and pushed right; the answer follows
               underneath on the left, smaller — so the section reads as a
-              question answered rather than a label beside a heading.
-              The question holds the section-heading size shared with Featured
-              work, rather than going bigger: above it sits the hero statement,
-              and overtaking that would invert the page's type ramp. */}
+              question answered rather than a label beside a heading. */}
           <ScrollReveal className="grid md:grid-cols-12 gap-x-10 gap-y-10 md:gap-y-16 mb-10 md:mb-14">
             <div className="md:col-span-8 md:col-start-5">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.03] tracking-[-0.02em]">
                 What do we do?
               </h2>
             </div>
@@ -96,13 +93,13 @@ export default function Home() {
 
       <section className="px-6 lg:px-12 py-12 md:py-20">
         <div className="max-w-[1400px] mx-auto">
+          {/* Same treatment as "What do we do?" — section headings are set
+              alike and in the same column, so the page has one heading voice
+              rather than a different arrangement per section. */}
           <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
-            <div className="md:col-span-3">
-              <p className="text-xs uppercase tracking-[0.18em] text-white">Featured work</p>
-            </div>
-            <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.03] tracking-[-0.02em]">
-                Transforming bold ideas into brands people believe in.
+            <div className="md:col-span-8 md:col-start-5">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.03] tracking-[-0.02em]">
+                Featured work
               </h2>
             </div>
           </ScrollReveal>
