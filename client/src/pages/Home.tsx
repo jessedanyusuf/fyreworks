@@ -104,8 +104,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Rule with the portfolio link riding on it, as in the reference. */}
-          <ScrollReveal className="flex items-center justify-end gap-6 border-t border-white/20 pt-5 mb-10 md:mb-12">
+          <ScrollReveal className="flex items-center justify-end gap-6 mb-10 md:mb-12">
             <Link
               href="/work"
               className="group inline-flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"

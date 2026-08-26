@@ -45,15 +45,7 @@ export default function FeaturedWork() {
               className="pl-6 lg:pl-8 flex-[0_0_78%] sm:flex-[0_0_46%] lg:flex-[0_0_31%]"
             >
               <Link href={`/work/${project.slug}`} className="group block">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/40">
-                  {project.roles[0]}
-                </p>
-
-                <h3 className="mt-2 font-display text-xl lg:text-2xl tracking-[-0.015em] font-semibold transition-colors group-hover:text-white/70">
-                  {project.name}
-                </h3>
-
-                <div className="mt-5 aspect-[4/5] overflow-hidden bg-white/5">
+                <div className="relative aspect-[4/5] overflow-hidden bg-white/5">
                   <img
                     src={project.cover}
                     alt={project.name}
@@ -61,6 +53,25 @@ export default function FeaturedWork() {
                     draggable={false}
                     className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] select-none"
                   />
+
+                  {/* The blur alone is not enough on a light or busy cover —
+                      it softens what is behind the panel but does not darken
+                      it. This gradient is what actually buys the contrast. */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/25 to-transparent"
+                  />
+
+                  <div className="absolute inset-x-3 bottom-3 flex justify-end">
+                    <div className="max-w-full rounded-lg bg-black/25 backdrop-blur-md ring-1 ring-white/15 px-3.5 py-2.5 text-right shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
+                      <h3 className="font-display text-base lg:text-lg font-semibold tracking-[-0.015em] leading-tight">
+                        {project.name}
+                      </h3>
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
+                        {project.roles.join(" · ")}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
