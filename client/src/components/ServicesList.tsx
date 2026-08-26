@@ -4,14 +4,14 @@ import { SERVICES } from "@/data/services";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/**
- * Height of each row left showing once the next one stacks over it. Measured,
- * not guessed: the word's ink runs to 83px inside the row, so anything under 84
- * slices through the letterforms — 64 cut "Identity" clean through its middle.
+/*
+ * --peek is how much of a row stays visible once the next stacks over it, and
+ * --stack-top is where the pile begins, clear of the fixed header. Both are
+ * measured rather than picked, and both differ by breakpoint because the word
+ * and the header do: the word's ink runs to 61px inside a mobile row and 83px
+ * on desktop, and a peek under either slices through the letterforms.
+ * They live as CSS variables so one inline calc covers both breakpoints.
  */
-const PEEK = 88;
-/** Where the stack starts, clear of the fixed header. */
-const STACK_TOP = "5.5rem";
 
 /**
  * Capabilities as a numbered index: rule, index number, the word set large and
@@ -38,11 +38,11 @@ export default function ServicesList() {
        reading as a static column.
        PEEK is what stays visible of each row once the next covers it — set just
        above the cap height of the word, so every stacked service still reads.
-       Only from md up: seven sticky rows would eat a phone viewport. */
+       Stacks at every size: seven rows at the mobile peek pile up to ~510px,
+       which a phone viewport carries. */
     <ul
-      className="w-full"
+      className="w-full [--stack-top:4.5rem] [--peek:66px] md:[--stack-top:5.5rem] md:[--peek:88px]"
       role="list"
-      style={{ ["--stack-top" as string]: STACK_TOP }}
     >
       {SERVICES.map((s, i) => {
         const isActive = active === i;
@@ -61,12 +61,12 @@ export default function ServicesList() {
           <li
             key={s.word}
             /* Opaque, or the row underneath shows straight through the stack. */
-            className="md:sticky bg-black"
-            style={{ top: `calc(var(--stack-top) + ${i * PEEK}px)` }}
+            className="sticky bg-black"
+            style={{ top: `calc(var(--stack-top) + ${i} * var(--peek))` }}
           >
             <button
               type="button"
-              className="w-full text-left pt-5 pb-8 md:pt-6 md:pb-16 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start border-t border-white/[0.14] focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
+              className="w-full text-left pt-5 pb-12 md:pt-6 md:pb-16 group grid grid-cols-12 gap-x-4 md:gap-x-8 items-start border-t border-white/[0.14] focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
               aria-expanded={isActive}
               aria-controls={`service-panel-${i}`}
               {...handlers}
