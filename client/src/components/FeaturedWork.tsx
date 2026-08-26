@@ -54,23 +54,26 @@ export default function FeaturedWork() {
                     className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] select-none"
                   />
 
-                  {/* The blur alone is not enough on a light or busy cover —
-                      it softens what is behind the panel but does not darken
-                      it. This gradient is what actually buys the contrast. */}
+                  {/* Dark wash and blur, masked so it fades out upward — no
+                      edge, no panel. The blur alone would not do it: it softens
+                      what is behind the words without darkening it, so the
+                      gradient is what actually buys contrast on light covers. */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/25 to-transparent"
+                    className="absolute inset-x-0 bottom-0 h-1/2 backdrop-blur-[6px] bg-gradient-to-t from-black/85 via-black/45 to-transparent"
+                    style={{
+                      maskImage: "linear-gradient(to top, #000 45%, transparent)",
+                      WebkitMaskImage: "linear-gradient(to top, #000 45%, transparent)",
+                    }}
                   />
 
-                  <div className="absolute inset-x-3 bottom-3 flex justify-end">
-                    <div className="max-w-full rounded-lg bg-black/25 backdrop-blur-md ring-1 ring-white/15 px-3.5 py-2.5 text-right shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
-                      <h3 className="font-display text-base lg:text-lg font-semibold tracking-[-0.015em] leading-tight">
-                        {project.name}
-                      </h3>
-                      <p className="mt-1 text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
-                        {project.roles.join(" · ")}
-                      </p>
-                    </div>
+                  <div className="absolute inset-x-4 bottom-4">
+                    <h3 className="font-display text-base lg:text-lg font-semibold tracking-[-0.015em] leading-tight">
+                      {project.name}
+                    </h3>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
+                      {project.roles.join(" · ")}
+                    </p>
                   </div>
                 </div>
               </Link>
