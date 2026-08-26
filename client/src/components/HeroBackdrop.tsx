@@ -24,6 +24,7 @@ export default function HeroBackdrop({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [useVideo, setUseVideo] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -65,17 +66,20 @@ export default function HeroBackdrop({
     v.play().then(() => v.pause()).catch(() => {});
 
     let raf = 0;
-    let last = -1;
 
     const tick = () => {
       const d = v.duration;
       if (d && Number.isFinite(d)) {
         const t = Math.min(d - 0.001, Math.max(0, progressRef.current * d));
-        // Only seek on a real change: redundant seeks stall the decoder and
-        // make the scrub stutter rather than smooth it.
-        if (Math.abs(t - last) > 1 / 48) {
+        // Compared against the element's own time rather than the last value we
+        // asked for. Browsers reset a non-playing video under memory pressure or
+        // on tab eviction, which snaps currentTime to 0 — and against a
+        // remembered target that reads as "already there", so no seek is issued
+        // and the hero sits on the wrong frame until you scroll far enough to
+        // move the target. Reading the element back makes the loop self-healing.
+        // The seeking check keeps it from stacking seeks while one is in flight.
+        if (!v.seeking && Math.abs(t - v.currentTime) > 1 / 48) {
           v.currentTime = t;
-          last = t;
         }
       }
       raf = requestAnimationFrame(tick);
@@ -86,7 +90,7 @@ export default function HeroBackdrop({
 
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-black">
-      {useVideo ? (
+      {useVideo && !failed ? (
         <video
           ref={videoRef}
           className="w-full h-full object-cover object-[70%_50%] md:object-center"
@@ -95,9 +99,10 @@ export default function HeroBackdrop({
           muted
           playsInline
           disablePictureInPicture
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
+          // Hand back to the poster. Hiding the video instead left nothing
+          // behind it — the poster only renders on the other branch — so a
+          // single decode error blanked the hero to solid black for good.
+          onError={() => setFailed(true)}
         >
           <source src="/assets/hero-astronaut.mp4" type="video/mp4" />
         </video>
