@@ -48,8 +48,7 @@ export default function Footer() {
 
           <div className="md:col-span-5 md:col-start-8 space-y-8 md:space-y-9">
             <p className="text-base md:text-lg leading-relaxed max-w-[42ch] text-white/85">
-              If you&rsquo;re building something the world doesn&rsquo;t have yet, we&rsquo;re here
-              to listen.
+              Tell us what you&rsquo;re building.
             </p>
 
             <a
