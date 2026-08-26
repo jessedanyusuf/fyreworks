@@ -71,9 +71,15 @@ export default function FeaturedWork() {
                     <h3 className="font-display text-base lg:text-lg font-semibold tracking-[-0.015em] leading-tight">
                       {project.name}
                     </h3>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
-                      {project.roles.join(" · ")}
-                    </p>
+                    {/* Padding rather than margin, and inside the clipped
+                        child, so the row collapses to a true zero. */}
+                    <div className="tags-reveal">
+                      <div>
+                        <p className="pt-1 text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
+                          {project.roles.join(" · ")}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Link>

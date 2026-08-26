@@ -109,7 +109,7 @@ export default function Home() {
               href="/work"
               className="group inline-flex items-center gap-3 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors"
             >
-              Portfolio
+              See our work
               <span
                 aria-hidden="true"
                 className="transition-transform group-hover:translate-x-1"

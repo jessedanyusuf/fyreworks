@@ -121,3 +121,35 @@
     cursor: auto;
   }
 }
+
+/* Work-card tags, held back until the cover is hovered.
+   Collapsed with grid-template-rows 0fr→1fr rather than max-height, so the
+   height animates to the content's real size instead of a guessed ceiling —
+   the caption sits tight to the bottom when idle and the name lifts as the
+   tags arrive.
+   Pointer devices only: touch has no hover, and tapping the card follows the
+   link, so on a phone the tags simply stay visible. */
+.tags-reveal {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.tags-reveal > * {
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tags-reveal {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms ease-out;
+  }
+
+  .group:hover .tags-reveal,
+  .group:focus-visible .tags-reveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
