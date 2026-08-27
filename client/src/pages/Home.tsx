@@ -28,15 +28,13 @@ export default function Home() {
                   third line is always at its widest. */}
               <h1 className="font-display text-[7.5vw] md:text-[7vw] lg:text-[6.5vw] leading-[0.92] tracking-[-0.03em] font-bold">
                 <RevealLine trigger="load" delay={0.05}>
-                  We Are the
+                  We are the
                 </RevealLine>
                 <RevealLine trigger="load" delay={0.13}>
-                  Creative Studio
+                  creative studio
                 </RevealLine>
                 <RevealLine trigger="load" delay={0.21}>
-                  {/* capitalize rather than editing HERO_WORDS: the cycle types
-                      a character at a time, and the rule still fires mid-word. */}
-                  for <span className="capitalize"><RotatingWord /></span>
+                  for <RotatingWord />
                 </RevealLine>
               </h1>
 
