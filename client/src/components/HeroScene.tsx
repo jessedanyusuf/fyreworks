@@ -90,6 +90,19 @@ export default function HeroScene({ children }: { children: ReactNode }) {
     <section ref={sectionRef} className="relative h-[260vh] md:h-[300vh] -mt-16 md:-mt-20">
       <div className="sticky top-0 h-[100svh] flex flex-col justify-end overflow-hidden pt-16 md:pt-20">
         <HeroBackdrop progressRef={videoProgress} />
+
+        {/* Takes the footage down to black over the last beat. Sits directly
+            above the backdrop and beneath the copy on purpose: on top of
+            everything it dimmed the closing statement too, so the line landed
+            and then immediately greyed out — which reads as the page dying
+            rather than the lights going down behind it. A veil rather than
+            opacity on the container, since fading an ancestor would flatten the
+            sticky layer and the scrimmed video with it. */}
+        <div
+          ref={dissolveRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-black opacity-0"
+        />
         {children}
 
         <div className="absolute inset-x-0 bottom-0 px-6 lg:px-12 pb-12 md:pb-16">
@@ -118,15 +131,6 @@ export default function HeroScene({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        {/* Takes the whole scene down to black over the last beat, rather than
-            the section simply ending. A veil over the top instead of fading the
-            container: opacity on an ancestor would flatten the sticky layer and
-            the scrimmed video with it. */}
-        <div
-          ref={dissolveRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-black opacity-0"
-        />
       </div>
     </section>
   );
