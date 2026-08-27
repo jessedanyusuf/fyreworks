@@ -3,6 +3,7 @@ import RotatingWord from "@/components/motion/RotatingWord";
 import RevealLine from "@/components/motion/RevealLine";
 import SlotWord from "@/components/motion/SlotWord";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import RevealDown from "@/components/motion/RevealDown";
 import ParallaxHero from "@/components/motion/ParallaxHero";
 import FeaturedWork from "@/components/FeaturedWork";
 import HeroScene from "@/components/HeroScene";
@@ -66,13 +67,13 @@ export default function Home() {
           {/* The question is set large and pushed right; the answer follows
               underneath on the left, smaller — so the section reads as a
               question answered rather than a label beside a heading. */}
-          <ScrollReveal className="grid md:grid-cols-12 gap-x-10 gap-y-10 md:gap-y-16 mb-10 md:mb-14">
-            <div className="md:col-span-8 md:col-start-5">
+          <div className="grid md:grid-cols-12 gap-x-10 gap-y-10 md:gap-y-16 mb-10 md:mb-14">
+            <RevealDown className="md:col-span-8 md:col-start-5">
               <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.03] tracking-[-0.02em]">
                 What do we do?
               </h2>
-            </div>
-            <div className="md:col-span-6 space-y-4">
+            </RevealDown>
+            <ScrollReveal className="md:col-span-6 space-y-4">
               <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.05] tracking-[-0.02em]">
                 Creative direction.
               </h3>
@@ -80,8 +81,8 @@ export default function Home() {
                 The art &amp; practice of deciding what a brand should feel like, stand for, and
                 refuse to be.
               </p>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
 
           <ScrollReveal>
             <ServicesList />
@@ -94,13 +95,13 @@ export default function Home() {
           {/* Same treatment as "What do we do?" — section headings are set
               alike and in the same column, so the page has one heading voice
               rather than a different arrangement per section. */}
-          <ScrollReveal className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
-            <div className="md:col-span-8 md:col-start-5">
+          <div className="grid md:grid-cols-12 gap-10 mb-10 md:mb-14">
+            <RevealDown className="md:col-span-8 md:col-start-5">
               <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.03] tracking-[-0.02em]">
                 Featured work
               </h2>
-            </div>
-          </ScrollReveal>
+            </RevealDown>
+          </div>
 
           <ScrollReveal className="flex items-center justify-end gap-6 mb-10 md:mb-12">
             <Link
